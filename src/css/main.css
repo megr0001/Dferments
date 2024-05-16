@@ -1,0 +1,39 @@
+/* fontface */
+@font-face {
+  font-family: "silkflower";
+  src: url("/fonts/silkflower.woff") format("woff"), url("/fonts/silkflower.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* variabler*/
+
+:root {
+  /*farver*/
+  /* fuel yellow*/
+  --yellow: #f2a922;
+  --yellow600: #d1680e;
+
+  /*totem pole */
+  --red: #a10301;
+
+  /*beige*/
+  --beige: #fffbf5;
+  --beigeD: #efe0c9;
+
+  /* cod grey*/
+  --codGrey: #0d0d0d;
+
+  /* white*/
+  --white: #ffffff;
+
+  /*fonts*/
+
+  --h1: "silkflower";
+  --h2: "questa", serif;
+  --primary-font: 
+
+  /*font size - mobil*/ --h1-;
+
+  /*font size - desktop*/
+}
