@@ -1,0 +1,54 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Ppf from "../components/products/Ppf.astro";
+
+// const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/t8_karrusel_supabase",
+// {
+//     method: "GET",
+//     headers: {
+//         apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6ZmpibGV4aHdvaWpnYmdtaXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNDIxMTQsImV4cCI6MjAyNTkxODExNH0.O7nP4UolRZVDGhGQ3-0RoYhP0SEzLOyHHhp125SwNvw"
+//     },
+// }).then((res) => res.json());
+
+// console.log(data);
+---
+
+<MainLayout title="DRINK ME">
+    <h1>Products</h1>
+
+    <Ppf />
+
+<!-- <section class="artists">
+    {data.map((show) => {
+    return <Card data={show} className="card" />;
+    })
+    }
+</section> -->
+</MainLayout>
+
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* foreløbig */
+
+    h1 {
+        text-transform: uppercase;
+        color:#BD0200;
+        /* mangler silk flower font */
+        text-align: center;
+        margin: 48px 0 40px 0;
+        font-size: 40px;
+    }
+</style>

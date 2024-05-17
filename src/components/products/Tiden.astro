@@ -1,0 +1,148 @@
+<div class="tiden">
+  <img src="/img/products/past.webp" alt="Billede af diverse kombucha smag.">
+  <div class="standard">
+		<h2>The past</h2>
+		<p>How did it start?...</p>
+         <div class="button">Past</div>
+    </div> 
+  
+  <div class="hover">			
+		<div class="description">
+		<p>Kombucha, enjoy , taste ....</p>
+        </div>
+	</div>
+    
+    <div class="pastitems"></div>
+        <ul class="products">
+        <!-- kombucha -->
+        <li>hej</li>
+        <!-- kombucha -->
+        <li>yo</li>
+        <!-- kombucha -->
+        <li>man</li>
+    </ul>
+    </div>
+</div>
+
+<style>
+.tiden {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1.5rem;
+}
+
+.tiden img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.standard {
+    position: absolute;
+     background: 
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.4)
+    );
+    width: 382px;
+  height: 252.19px;
+  border-radius: 10px;
+}
+
+.standard h2, p {
+    color: beige;
+      position: absolute;
+}
+
+.standard h2 {
+    font-size: 24px;
+    bottom: 40px;
+  left: 16px;
+    text-transform: uppercase;
+}
+
+.standard p {
+      font-size: 18px;
+    bottom: 8px;
+  left: 16px;
+}
+
+.button {
+position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+   background-color: transparent;
+  border: 2px solid beige;
+  border-radius: 10px;
+  color: beige;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+   animation: pulse 2s infinite alternate;
+}
+
+.button:hover {
+  background-color: orange;
+  color: beige;
+  border-color: orange;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  animation: none; /* Stop pulse animation on hover */
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.button.clicked {
+  background-color: #000000;
+  color: #ffffff;
+  animation: none; /* Stop pulse animation when clicked */
+    transform: translate(-50%, -50%) scale(1.1);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const button = document.querySelector('.button') as HTMLElement;
+  const pastItems = document.querySelector('.pastitems') as HTMLElement;
+  const productsList = document.querySelector('.products') as HTMLElement;
+  let isOpen = false;
+
+  // Eventlistener for knaptryk
+  button.addEventListener('click', function() {
+    if (isOpen) {
+      pastItems.style.display = 'none'; // Skjuler pastitems
+      productsList.style.display = 'none'; // Skjuler produkter
+    } else {
+      pastItems.style.display = 'block'; // Viser pastitems
+      productsList.style.display = 'block'; // Viser produkter
+    }
+    isOpen = !isOpen; // Ændrer knappens tilstand
+  });
+
+  // Eventlistener for klik uden for knappen og UL-området
+  document.addEventListener('click', function(event) {
+    const targetElement = event.target as HTMLElement;
+
+    // Hvis det klikkede element ikke er knappen eller inden for UL-området
+    if (!targetElement.classList.contains('button') && !targetElement.closest('.products')) {
+      pastItems.style.display = 'none'; // Skjuler pastitems
+      productsList.style.display = 'none'; // Skjuler produkter
+      isOpen = false; // Opdaterer knappens tilstand
+    }
+  });
+});
+
+</script>
