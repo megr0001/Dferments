@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Ppf from "../components/products/Ppf.astro";
+import Card from "../components/products/Card.astro";
 
 // const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/t8_karrusel_supabase",
 // {
@@ -15,7 +16,6 @@ import Ppf from "../components/products/Ppf.astro";
 
 <MainLayout title="DRINK ME">
     <h1>Products</h1>
-
     <Ppf />
 
 <!-- <section class="artists">
@@ -51,4 +51,16 @@ img {
         margin: 48px 0 40px 0;
         font-size: 40px;
     }
+
+
+/* .artists {
+        display: flex;
+        overflow: auto;
+    } */
+
+    /* .artists .card {
+    cards viser sig 100% og ikke forstrækkes
+        flex: 0 0 100%;
+
+    } */
 </style>
