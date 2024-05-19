@@ -1,3 +1,15 @@
 h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.text-container {
+  max-width: 800px; /* Just for demonstration */
+}
+
+.text-container p {
+  margin-left: 0; /* Reset margin */
+}
+
+.text-container p:nth-child(odd) {
+  margin-left: 50px; /* Adjust as needed */
+}
