@@ -1,32 +1,104 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Ppf from "../components/products/Ppf.astro";
-import Card from "../components/products/Card.astro";
+import Tiden from "../components/products/Tiden.astro";
 
-// const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/t8_karrusel_supabase",
-// {
-//     method: "GET",
-//     headers: {
-//         apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6ZmpibGV4aHdvaWpnYmdtaXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNDIxMTQsImV4cCI6MjAyNTkxODExNH0.O7nP4UolRZVDGhGQ3-0RoYhP0SEzLOyHHhp125SwNvw"
-//     },
-// }).then((res) => res.json());
-
-// console.log(data);
+const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/DFERMENTS",
+{
+    method: "GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6ZmpibGV4aHdvaWpnYmdtaXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNDIxMTQsImV4cCI6MjAyNTkxODExNH0.O7nP4UolRZVDGhGQ3-0RoYhP0SEzLOyHHhp125SwNvw"
+    },
+}).then((res) => res.json());
 ---
 
 <MainLayout title="DRINK ME">
     <h1>Products</h1>
-    <Ppf />
+    <article class="container">
+      <div>
+      <Tiden
+h2="The past"
+p="How did it start?..."
+billede="/img/products/past.webp" alt="Billede af diverse kombucha smag."
+buttontxt="PAST"
+/>
+  <div class="categoriespa">
+  <ul class="productlist">
+    <section class="products">
+      {data.map((product) => {
+        if (product.category === 'past') {
+          return (
+            <article class="time">
+              <h2>{product.product_name}</h2>
+              <p>{product.beskrivelse}</p>
+            </article>
+          );
+        } else {
+          return null;
+        }
+      })}
+    </section>
+  </ul>
+</div>
+</div>
 
-<!-- <section class="artists">
-    {data.map((show) => {
-    return <Card data={show} className="card" />;
-    })
-    }
-</section> -->
+<div class="secondtime">
+<Tiden
+h2="The present"
+p="What's in the moment?"
+billede="/img/products/present.webp" alt="Billede af diverse kombucha smag."
+buttontxt="PRESENT"
+/>
+<div class="categoriesppr">
+  <ul class="productlist present">
+    <section class="products">
+      {data.map((product) => {
+        if (product.category === 'present') {
+          return (
+            <article class="time">
+              <h2>{product.product_name}</h2>
+              <p>{product.beskrivelse}</p>
+              <img src={product.img} alt={product.beskrivelse} />
+            </article>
+          );
+        } else {
+          return null;
+        }
+      })}
+    </section>
+  </ul>
+</div>
+</div>
+
+<div class="thirdtime">
+<Tiden
+h2="The future"
+p="What comes next?"
+billede="/img/products/future.webp" alt="Billede af diverse kombucha smag."
+buttontxt="FUTURE"
+/>   
+<div class="categoriesf">
+    <ul class="productlist future">
+    <section class="products">
+      {data.map((product) => {
+        if (product.category === 'future') {
+          return (
+            <article class="time">
+              <h2>{product.product_name}</h2>
+              <p>{product.beskrivelse}</p>
+            </article>
+          );
+        } else {
+          return null;
+        }
+      })}
+    </section>
+  </ul>
+  </div>
+</article>
 </MainLayout>
 
 <style>
+  /* foreløbig */
     * {
   box-sizing: border-box;
 }
@@ -34,6 +106,7 @@ import Card from "../components/products/Card.astro";
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--beige);
 }
 
 img {
@@ -41,26 +114,78 @@ img {
   height: auto;
   display: block;
 }
-/* foreløbig */
 
-    h1 {
+   h1 {
         text-transform: uppercase;
-        color:#BD0200;
-        /* mangler silk flower font */
+        color: var(--red);
+        font-family: var(--h1);
         text-align: center;
         margin: 48px 0 40px 0;
         font-size: 40px;
     }
-
-
-/* .artists {
+  .container {
+        position: relative;
         display: flex;
-        overflow: auto;
-    } */
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+.productlist {
+    display: none;
+}
 
-    /* .artists .card {
-    cards viser sig 100% og ikke forstrækkes
-        flex: 0 0 100%;
+.productlist.active {
+    display: block;
+    padding: 0;
+    margin: 40px auto;
+}
 
-    } */
+.animated.moveUp {
+   opacity: 0;
+    transform: translateY(40px);
+    animation-name: moveUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes moveUp {
+  0% {
+     opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+     opacity: 1;
+    transform: translateY(0);
+  }
+}
+.time {
+  margin: 0 1rem;
+}
+/* Juster tekstjusteringen til højre for hver anden .time artikel */
+article.time:nth-of-type(2n) {
+  text-align: right;
+}
+
+
+
 </style>
+
+<script>
+// animation moveup
+document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated', 'moveUp');
+                observer.unobserve(entry.target);  // Stop observing once animated
+            }
+        });
+    }, {
+        threshold: 0.1  // Trigger when 10% of the element is visible
+    });
+
+    const items = document.querySelectorAll('.productlist');
+    items.forEach(item => {
+        observer.observe(item);
+    });
+});
+</script>
