@@ -151,17 +151,31 @@ img {
 
 .products {
   list-style: none;
-  padding: 1rem 1rem;
+  /* padding: 1rem 1rem; */
   /* border-top: 1px solid var(--codGrey); */
   border-bottom: 1px solid var(--codGrey);
   background-image: url(/img/products/tealeaf.svg), url(/img/products/flowerleft.svg), url(/img/products/flowerright.svg);
   background-repeat: no-repeat;
   background-position: left top, center center, bottom center;
   background-size: 30%, 110%, 80%;
+
+
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: absolute; /* Flyt .products ud af det normale flow */
+  top: 0;
+  left: 0;
+  width: 100%; /* Sæt bredden til at være 100% af viewport */
+  margin: 0; /* Fjern eventuel margin */
 }
+
 .time {
-  margin: 48px 1rem;
+  /* margin: 48px 1rem; */
   border-bottom: 1px solid var(--yellow600);
+  flex-basis: calc(33.33% - 2rem); /* Beregn bredden på hver time */
+  margin: 1rem; /* Tilføj lidt plads mellem hver time */
 }
 
 .time h2 {
@@ -196,12 +210,6 @@ article.time:nth-of-type(2n) {
   color: var(--red);
 }
 
-.products li {
-  margin: 100px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
 .animated.moveUp {
    opacity: 0;
     transform: translateY(40px);
@@ -221,15 +229,61 @@ article.time:nth-of-type(2n) {
 }
 
 @media (min-width: 800px) {
-   .container {
+h1 {
+        margin: 96px 0 64px 0;
+        font-size: 60px;
+    }
+    
+    .container {
       flex-direction: row;
       justify-content: space-around;
-      align-items: flex-start;
-      margin-bottom: 48px;
+      align-items:start;
+      margin-bottom: 96px;
       margin-inline: 2rem;
+      gap: 32px;
     }
+
+.productlist.active {
+  position: absolute;
+  display: contents;
 }
 
+.products {
+margin: 45rem 0;
+padding-inline: 2rem;
+border-bottom: 2px solid var(--codGrey);
+gap: 2rem;
+
+background-position: left top, left center, bottom right;
+  background-size: 20%, 90%, 60%;
+}
+
+    .time {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+    .time h2 {
+  margin: 0 0 24px 0;
+   
+}
+.time p {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+}
+
+.time img {
+  margin-top: 32px;
+  height: auto;
+  width: 70%;
+}
+article.time:nth-of-type(2n) {
+  text-align: left;
+}
+}
 </style>
 
 <script>
