@@ -2,4 +2,770 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Contact & Collabs"
+<MainLayout title="Contact & Collabs">
+
+<h1>CONTACT & COLLABS</h1>
+
+
+<div class="grid_1_2">
+    <section class="contact_us">
+
+        <form id="form_1">
+            <p>Name</p>
+            <input type="text" id="input1" placeholder="Write your full name">
+            <p>Email</p>
+            <input type="text" id="input2" placeholder="Write your email address">
+            <p>Phone number</p>
+            <input type="text" id="input3" placeholder="Write your number">
+
+            <p>Message</p>
+            <input type="text" id="input4" placeholder="Write your message here...">
+            <button type="button" onclick="submitForm()">SEND MESSAGE →</button>
+        </form>
+
+
+    </section>
+
+
+
+    <section class="newsletter">
+
+        <p class="sign_p">Sign up for our</p>
+        <h2>NEWSLETTER</h2>
+
+        <p class="subscribe_p">Subscribe to our newsletter and be the first to receive exciting updates, exclusive
+            offers, and insightful
+            content straight to your inbox. <br><br> We typically send out newsletters once a week to keep you
+            informed
+            without overwhelming your inbox.</p>
+
+
+        <p class="email_p">Email</p>
+
+        <form id="form_2"><input type="text" id="input5" placeholder="Write your email address">
+            <button type="button" onclick="submitForm()">SUBMIT →</button>
+        </form>
+    </section>
+</div>
+
+
+
+<div class="grid_3_4">
+    <section class="alternative">
+
+        <p class="you_p">You can also</p>
+        <h2>ALTERNATIVE CONTACT</h2>
+        <p class="would">Would you like to contact me in a different way? </p>
+
+        <p class="contact_p">Contact me here:</p>
+
+
+        <div class="icons">
+            <a href="#"><img class="mail" src="svg/mail.svg" alt="Mail icon"></a>
+
+            <a class="a" href="#">dferments@gmail.com</a>
+            <a href="#"><img class="phone" src="svg/telephone.svg" alt="Phone icon"></a>
+
+            <a class="a" href="#">+45 71 97 50 91</a>
+            <a href="#"><img class="ig" src="svg/ig.svg" alt="Instagram icon"></a>
+
+            <a class="a" href="#">@dferments</a>
+            <a href="#"><img class="fb" src="svg/fb.svg" alt="Facebook icon"></a>
+
+            <a class="a" href="#">@dferments</a>
+        </div>
+
+        <p class="address">D Ferments ApS <br> <br>
+
+            Ellekær 14 <br>
+            2730 Herlev</p>
+
+    </section>
+
+
+
+    <section class="events">
+
+        <p class="learn_p">Learn about our</p>
+        <h2>EVENTS & POPUPS</h2>
+
+        <p class="are_p">Are you looking to conceptualize an innovative bar arrangement for your event, whether it’s
+            alcohol-free or featuring alcoholic beverages?
+            In addition to bar service, we also offer catering options. <br> <br> <br>
+
+            Click here to read more</p>
+
+        <button> <a href="/events">EVENTS & COLLABS →</a></button>
+
+
+        <img class="flower" src="svg/flower.svg" alt="Flower illustration">
+
+    </section>
+</div>
+
+
+
+<div class="rullende_brands">
+    <div class="brands">
+        <a href="https://www.aeriscocktails.com/" target="_blank"><img src="img/aeris.svg" alt="Aeris' logo"></a>
+        <a href="https://bakabistro.dk/" target="_blank"><img src="img/bakadbusk.webp" alt="Baka D'busks logo"></a>
+        <a href=https://www.facebook.com/balderdashdk/" target="_blank"><img src="img/balderdash.webp"
+                alt="Balderdash' logo"></a>
+        <a href="https://lagolago.dk/" target="_blank"><img src="img/lago.svg" alt="Lagos logo"></a>
+        <a href="https://www.barvivant.dk/" target="_blank"><img src="img/vivant.webp" alt="Vivants logo"></a>
+    </div>
+</div>
+
+
+
+<div class="grid_grid">
+
+    <div class="grid_1"> <img class="img4" src="img/dferments_still_ewp-2.webp" alt="Flaske">
+        <img class="img2" src="img/dferments_still_ewp-28.webp" alt="Pakke">
+    </div>
+
+
+    <div class="grid_2"> <img class="img3desk" src="img/dferments_still_ewp-4.webp" alt="Damian">
+        <img class="img6desk" src="img/dferments_still_ewp-1.webp" alt="Damian">
+    </div>
+
+
+
+    <div class="grid_3"> <img class="img5" src="img/dferments_still_ewp-7.webp" alt="Glas">
+        <img class="img1" src="img/dferments_still_ewp-20.webp" alt="Damian">
+    </div>
+
+
+</div>
+
+
+
+
+<div class="grid_img_1">
+    <img class="img1" src="img/dferments_still_ewp-20.webp" alt="Damian">
+    <img class="img2" src="img/dferments_still_ewp-28.webp" alt="Pakke">
+</div>
+
+<img class="img3m" src="img/dferments_still_ewp-4.webp" alt="Damian">
+
+<div class="grid_img_2">
+    <img class="img4" src="img/dferments_still_ewp-2.webp" alt="Flaske">
+    <img class="img5" src="img/dferments_still_ewp-7.webp" alt="Glas">
+
+</div>
+
+<img class="img6m" src="img/dferments_still_ewp-1.webp" alt="Damian">
+
+</MainLayout>
+
+<style>
+    /*Mobil*/
+
+    /*Generel*/
+    body, main, html {margin:0;
+        padding:0
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    section {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    body {
+        background-color: var(--beige);
+    }
+
+    h1 {
+        color: var(--red);
+        font-family: var(--h1);
+        text-align: center;
+        margin-top: 3rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        font-size: 40px;
+    }
+
+    h2{
+        font-size: 30px;
+    }
+
+    /*Contact us*/
+
+    #form_1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #form_1 p {
+        margin-bottom: 0.3rem;
+        margin-top: 1.5rem;
+    }
+
+    #form_1 #input1 {
+        border: none;
+        background-color: var(--beigeD);
+        border-radius: 5px;
+        padding: 0.5rem;
+    }
+
+    #form_1 #input1:focus {
+        border: none;
+        outline: none;
+
+    }
+
+    #form_1 #input2 {
+        border: none;
+        background-color:var(--beigeD);
+        border-radius: 5px;
+        padding: 0.5rem;
+    }
+
+    #form_1 #input2:focus {
+        border: none;
+        outline: none;
+
+    }
+
+    #form_1 #input3 {
+        border: none;
+        background-color: var(--beigeD);
+        border-radius: 5px;
+        padding: 0.5rem;
+    }
+
+    #form_1 #input3:focus {
+        border: none;
+        outline: none;
+
+    }
+
+    #form_1 #input4 {
+        border: none;
+        background-color:var(--beigeD);
+        border-radius: 5px;
+        padding: 0.5rem;
+        padding-bottom: 5rem;
+    }
+
+    #form_1 #input4:focus {
+        border: none;
+        outline: none;
+
+    }
+
+
+    #form_1 button {
+        border: none;
+        background-color: var(--yellow600);
+        margin-top: 1.5rem;
+        margin-bottom: 3rem;
+        color: var(--beige);
+        border-radius: 5px;
+        width: 150px;
+        padding: 0.5rem;
+    }
+
+    #form_1 button:hover {
+        border: none;
+        background-color: var(--yellow);
+
+
+    }
+
+    /*Newsletter*/
+   /* .newsletter .sign_p {
+        margin-bottom: 0;
+    }*/
+
+    .newsletter h2 {
+        color: var(--red);
+        margin-top: 0;
+        font-family: var(--h2);
+    }
+
+    .subscribe_p {
+        margin-top: 0.5rem;
+    }
+
+    .email_p {
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+
+
+    #form_2 #input5 {
+        border: none;
+        background-color: var(--beigeD);
+        border-radius: 5px;
+        padding: 0.5rem;
+
+    }
+
+    #form_2 #input5:focus {
+        border: none;
+        outline: none;
+    }
+
+
+    #form_2 button {
+        border: none;
+        background-color: var(--yellow600);
+        margin-top: 1rem;
+        color: var(--beige);
+        border-radius: 5px;
+        width: 150px;
+        padding: 0.5rem;
+    }
+
+    #form_2 button:hover {
+        border: none;
+        background-color:var(--yellow);
+    }
+
+    /*Alternativ*/
+
+    .alternative .you_p {
+        margin-bottom: 0.2rem;
+        margin-top: 2rem;
+    }
+
+    .alternative h2 {
+        color: var(--red);
+        margin-bottom: 0.5rem;
+        margin-top: 0;
+        font-family: var(--h2);
+    }
+
+    .alternative .would {
+        margin: 0;
+        margin-bottom: 2rem;
+    }
+
+    .alternative .contact_p {
+        margin-bottom: 1rem;
+    }
+
+    .alternative img:hover {
+        opacity: 60%;
+    }
+
+    .icons {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: 1fr repeat(4);
+        grid-gap: 0.5rem;
+    }
+
+
+    .icons .phone {
+        width: 45px;
+
+    }
+
+    .icons .mail {
+        width: 43px;
+    }
+
+    .icons .a {
+        color: var(--codGrey);
+        text-decoration: none;
+        padding-top: 10px
+    }
+
+    .icons .a:hover {
+       opacity:60%;
+    
+    }
+
+    /*Events*/
+
+    .events h2 {
+        color: var(--red);
+        margin-top: 0.5rem;
+        font-family: var(--h2);
+    }
+
+
+    .events .are_p {
+        margin-top: 0.5rem;
+    }
+
+    .events button {
+        border: none;
+        background-color: var(--yellow600);
+        margin-top: 0.5rem;
+        color: var(--beige);
+        border-radius: 5px;
+        width: 170px;
+        padding: 0.5rem;
+    }
+
+    .events button:hover {
+        border: none;
+        background-color: var(--yellow);
+    }
+
+    .events button a {
+        color: var(--beige);
+        text-decoration: none;
+    }
+
+    .address {
+        margin-top: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .learn_p {
+        margin-bottom: 0.2rem;
+    }
+
+    /*Flower + collabs*/
+
+    .flower {
+        position: absolute;
+        left: 60%;
+        top: 260%;
+    }
+
+    .rullende_brands {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 8rem;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 3;
+        opacity: 1;
+        padding: 20px 0;
+        background-color: rgb(212, 202, 175);
+
+
+    }
+
+
+    .rullende_brands img {
+        width: 60px;
+        margin-right: 10rem;
+    }
+
+    .brands {
+        display: flex;
+        align-items: center;
+        gap: 55px;
+        width: 200%;
+        height: auto;
+        animation: scroll 24s linear infinite;
+        left: -100%;
+        /* Start fra højre side af containeren */
+        opacity: 1;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    /*Billeder*/
+
+    .grid_grid {
+        display: none;
+    }
+
+    .grid_img_1 {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-top: 4rem;
+        margin-bottom: 0.5rem;
+        display: grid;
+        grid-gap: 0.5rem;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .grid_img_2 {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        display: grid;
+        grid-gap: 0.5rem;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 0.5rem;
+
+
+    }
+
+    .img1 {
+        grid-column: 1;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .img2 {
+        grid-row: 1;
+        grid-column: 2;
+        height: 227px;
+        border-radius: 10px;
+        width: 150px;
+    }
+
+    .img3m {
+
+        width: 310px;
+        margin-left: 2rem;
+        border-radius: 10px;
+        margin-right: 2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .img4 {
+        width: 150px;
+        border-radius: 10px;
+        height: 230px;
+
+    }
+
+    .img5 {
+        grid-row: 1;
+        border-radius: 10px;
+        grid-column: 2;
+        height: 230px;
+        width: 150px;
+    }
+
+    .img6m {
+        width: 310px;
+        border-radius: 10px;
+        margin-left: 2rem;
+        margin-bottom: 4rem;
+        margin-right: 2rem;
+    }
+
+
+
+    .img6desk,
+    .img3desk {
+        display: none;
+    }
+
+
+    /*Desktop*/
+
+    @media (min-width: 800px) {
+
+        section {
+            margin-left: 4rem;
+            margin-right: 4rem;
+        }
+
+        .grid_1_2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        .newsletter {
+            margin-top: 3rem;
+        }
+
+        .contact_us {
+            margin-top: 1.5rem;
+        }
+
+        .email_p {
+            margin-top: 3.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        #form_2 #input5 {
+            margin-top: 0;
+
+        }
+
+        #form_2 {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .grid_3_4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        .alternative {
+            order: 1;
+        }
+
+        .icons {
+            grid-template-columns: 1fr 8fr;
+        }
+
+        .events {
+            margin-top: 3rem;
+        }
+
+        .alternative .you_p {
+            margin-top: -3rem;
+        }
+
+        #input4 {
+            padding-bottom: 13rem;
+        }
+
+
+        .icons .mail {
+            width: 35px;
+        }
+
+        .icons .phone,
+        .ig,
+        .fb {
+            width: 40px;
+        }
+
+
+        .are_p {
+            margin-bottom: 0.5rem;
+        }
+
+        .flower {
+
+            left: 76%;
+            top: 145%;
+            width: 25%;
+        }
+
+        .rullende_brands {
+            margin-top: 3rem;
+        }
+
+
+        .rullende_brands img {
+            width: 170px;
+            margin-right: 30rem;
+        }
+
+
+        .grid_img_1,
+        .grid_img_2,
+        .img6m,
+        .img3m {
+            display: none;
+        }
+
+        .img6desk,
+        .img3desk {
+            display: block;
+            border-radius: 10px;
+        }
+
+
+        .img3desk {
+            grid-column: 2;
+            grid-row: 1;
+            width: 300px;
+        }
+
+        .img6desk {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .img4 {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .img1 {
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        .img5 {
+            grid-column: 3;
+            grid-row: 2;
+        }
+
+        .img2 {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .grid_grid {
+            display: block;
+        }
+
+        .grid_grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr 1fr;
+            grid-template-rows: auto auto;
+            grid-gap: 1rem;
+            margin: 4rem;
+        }
+
+
+
+        .grid_1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid_2 {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .grid_3 {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .grid_grid img {
+            width: 100%;
+
+        }
+
+        .img3desk {
+
+            height: 100%;
+            margin-bottom: 1rem;
+
+        }
+
+
+        .img1 {
+            height: 120%;
+        }
+
+        .img2 {
+            height: 120%;
+        }
+
+        .img5 {
+            margin-bottom: 1rem;
+            height: 120%;
+        }
+
+        .img4 {
+            margin-bottom: 1rem;
+            height: 120%;
+        }
+
+    }
+
+
+</style>
