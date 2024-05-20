@@ -4,6 +4,7 @@ h1 {
   font-size: 40px;
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 .hero-image {
@@ -18,8 +19,20 @@ h1 {
   width: 100%;
 }
 
+.about_intro {
+  margin: 30px 15%;
+}
+
+.about_intro p {
+  font-size: 18px;
+}
+
 @media (min-width: 800px) {
   h1 {
     font-size: 60px;
+  }
+
+  .hero-image {
+    background-image: url("/img/dferments_about2.png");
   }
 }
