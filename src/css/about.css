@@ -1,7 +1,7 @@
 h1 {
   color: var(--red);
-  font-family: var(--h1);
-  font-size: 40px;
+  font-family: var(--h1-font);
+  font-size: var(--h1-sizeM);
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
@@ -24,7 +24,7 @@ h1 {
 }
 
 .about_intro p {
-  font-size: 18px;
+  font-size: var(--p-sizeM);
 }
 
 .image1 {
@@ -32,7 +32,7 @@ h1 {
   justify-content: right;
 }
 .image1 img {
-  width: 98%;
+  width: 97%;
   height: 60vw;
   border-top-left-radius: 400px;
   border-bottom-left-radius: 400px;
@@ -45,7 +45,7 @@ h1 {
 }
 
 .about_text p {
-  font-size: 18px;
+  font-size: var(--p-sizeM);
 }
 
 .image2 {
@@ -54,7 +54,7 @@ h1 {
 }
 
 .image2 img {
-  width: 98%;
+  width: 97%;
   height: 60vw;
   border-top-right-radius: 400px;
   border-bottom-right-radius: 400px;
@@ -67,7 +67,7 @@ h1 {
 }
 
 .ferment_text p {
-  font-size: 18px;
+  font-size: var(--p-sizeM);
 }
 
 .about_boks {
@@ -92,10 +92,89 @@ h1 {
 
 @media (min-width: 800px) {
   h1 {
-    font-size: 60px;
+    font-size: var(--h1-sizeD);
   }
 
   .hero-image {
     background-image: url("/img/dferments_about2.png");
+  }
+
+  .about_intro {
+    margin: 30px 15%;
+  }
+
+  .about_intro p {
+    font-size: var(--p-sizeD);
+  }
+
+  .textbox1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .image1 {
+    display: flex;
+    justify-content: right;
+  }
+  .image1 img {
+    width: 97%;
+    height: 40vw;
+    border-top-left-radius: 400px;
+    border-bottom-left-radius: 400px;
+  }
+
+  .about_text {
+    margin: 30px 15%;
+    display: grid;
+    gap: 15px;
+  }
+
+  .about_text p {
+    font-size: var(--p-sizeD);
+  }
+
+  .textbox2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .image2 {
+    display: flex;
+    justify-content: left;
+  }
+
+  .image2 img {
+    width: 97%;
+    height: 40vw;
+    border-top-right-radius: 400px;
+    border-bottom-right-radius: 400px;
+  }
+
+  .ferment_text {
+    margin: 30px 15%;
+    display: grid;
+    gap: 15px;
+  }
+
+  .ferment_text p {
+    font-size: var(--p-sizeD);
+  }
+
+  .about_boks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .order {
+    order: -1;
+  }
+
+  .ferment_photos {
+    height: 40vw;
+  }
+
+  .ferment_photos img {
+    border-radius: 10px;
+    height: 20vw;
   }
 }
