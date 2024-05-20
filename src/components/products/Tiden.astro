@@ -9,7 +9,7 @@ const {h2, p, billede, buttontxt} = Astro.props;
 		      <h2>{h2}</h2>
 		      <p>{p}</p>
          <button class="button buttonClicked" id="imageFull">{buttontxt}</button>
-      </div> 
+        </div> 
   </div>
 </div>
 </div>
@@ -31,7 +31,7 @@ const {h2, p, billede, buttontxt} = Astro.props;
   position: relative;
   display: inline-block;
   border-radius: 10px;
-  transition: width 1s, height 1s, transform 1s, box-shadow 1s, background-color 1s;
+  transition: all 0.6s ease-out;
 }
 
 .image_container.startposition {
@@ -39,8 +39,6 @@ const {h2, p, billede, buttontxt} = Astro.props;
     height: 430px;
       overflow: hidden;
     transform: scale(1);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  background-color: transparent;
 }
 
 .image_container.full {
@@ -57,21 +55,6 @@ const {h2, p, billede, buttontxt} = Astro.props;
     object-fit: cover;
 }
 
-  /* 
-  <div class="image_container">
-    <img src={billede}>
-      <div class="overlay">
-        <div class="standard">
-		      <h2>{h2}</h2>
-		      <p>{p}</p>
-         <!-- <div class="button">{buttontxt}</div> -->
-         <button class="button" >{buttontxt}</button>
-      </div> 
-  </div>
-</div>
-*/
-
-
 .overlay {
   position: absolute;
   top: 0;
@@ -81,7 +64,7 @@ const {h2, p, billede, buttontxt} = Astro.props;
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.4)
+    rgba(0, 0, 0, 0.8)
   );
   border-radius: 10px;
   z-index: 1;
@@ -90,9 +73,6 @@ const {h2, p, billede, buttontxt} = Astro.props;
 
 .standard {
     position: absolute;
-    /* width: 382px;
-  height: 252.19px;
-  border-radius: 10px; */
   top: 0;
   left: 0;
   width: 100%;
@@ -106,116 +86,108 @@ const {h2, p, billede, buttontxt} = Astro.props;
 }
 
 .standard h2, p {
-    color: beige;
       position: absolute;
   max-width: 65ch;
 }
 
 .standard h2 {
     font-size: 24px;
-    bottom: 40px;
-  left: 16px;
+    font-family: var(--h2);
+    bottom: 70px;
+  left: 20px;
     text-transform: uppercase;
+    color: var(--yellow);
 }
 
 .standard p {
-      font-size: 18px;
-    bottom: 8px;
-  left: 16px;
+  font-size: 20px;
+  bottom: 38px;
+  left: 20px;
+    color: var(--beige);
 }
 
 .button {
 position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-   background-color: transparent;
-  border: 2px solid beige;
-  border-radius: 10px;
-  color: beige;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 10px 20px;
+ border-radius: 10px;
+ border: none;
+
+    width: 101%;
+  height: 100%;
+  font-family: var(--h1);
+  font-size: 40px;
+  letter-spacing: 2px;
+  background: var(--red);
+  -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+  mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+  -webkit-mask-size: 3000% 100%;
+  mask-size: 3000% 100%;
+  color: var(--yellow600);
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-   animation: pulse 2s infinite alternate;
-   pointer-events: auto; /* Sikrer at knappen kan klikkes */
+  -webkit-animation: ani2 0.7s steps(29) forwards;
+  animation: ani2 0.7s steps(29) forwards;
+
+    pointer-events: auto; 
+    /* masks and animation fra Copyright (c) 2024 by Yugam (https://codepen.io/pizza3/pen/qmerBv)*/
 }
 
-/* .button:hover {
-  background-color: orange;
-  color: beige;
-  border-color: orange;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
-  animation: none;
-} */
-
-
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-}
-
-/* .button.active {
-  background-color: #000000;
-  color: #ffffff;
-  animation: none; 
-    transform: translate(-50%, -50%) scale(1.1);
-} */
-
-  /* .button {
-    cursor: pointer;
-    padding: 10px 20px;
-    border: none;
-    background-color: #BD0200;
-    color: white;
-    font-size: 200px;
-    text-transform: uppercase;
+.button:hover {
+  background-color: var(--codGrey);
+  color: var(--yellow600);
+ -webkit-animation: ani 0.7s steps(29) forwards;
+  animation: ani 0.7s steps(29) forwards;
 }
 
 .button.active {
-    background-color: var(--yellow600);
-      background-color: #000000;
-  color: #ffffff;
-  animation: none; 
-    transform: translate(-50%, -50%) scale(1.1);
-} */
-
-.pastitems {
-  display: none; /* Initially hidden */
+   /* -webkit-mask: none;
+  mask: none;  */
+  background-color: transparent;
+  color: transparent;
+}
+@-webkit-keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
 }
 
-.products {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  background-color: orange;
+@keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
 }
 
-.productlist {
-  display: none;
+@-webkit-keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
 }
 
-.productlist.active {
-  display: block;
-  margin: 0 4rem;
+@keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
 }
 
-
-.products li {
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-
-.products li:hover {
-  background: #e0e0e0;
-}
+   /* masks and animation fra Copyright (c) 2024 by Yugam (https://codepen.io/pizza3/pen/qmerBv)*/
 </style>
 
 <script>
@@ -263,26 +235,24 @@ document.addEventListener("DOMContentLoaded", function() {
     // Tilføj event listener til hver knap
     buttons.forEach((button, index) => {
         button.addEventListener('click', function() {
-            // Fjern 'full' og 'fullsize' klasser fra alle billeder
-            images.forEach(image => {
-                image.classList.remove('full');
-                image.classList.remove('fullsize');
+            // Først, sæt alle billeder til "full"
+            images.forEach((image, imgIndex) => {
+                if (imgIndex !== index) {
+                    image.classList.remove('full');
+                    image.classList.add('startposition');
+                }
             });
 
-            // Find det aktuelle billede baseret på knappens index
+            // Skift tilstanden for det klikkede billede
             const image = images[index];
-            
-            // Kontroller om billedet allerede er i fuld størrelse
-            if (!image.classList.contains('fullsize')) {
-                // Hvis ikke, skal det ændres til fuld størrelse
-                image.classList.add('fullsize');
-            } else {
-                // Hvis det allerede er i fuld størrelse, skal det ændres til normal størrelse
-                image.classList.remove('fullsize');
+            if (image.classList.contains('startposition')) {
+                image.classList.remove('startposition');
                 image.classList.add('full');
+            } else {
+                image.classList.remove('full');
+                image.classList.add('startposition');
             }
         });
     });
 });
-
 </script>

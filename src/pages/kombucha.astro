@@ -17,14 +17,16 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/DFERM
       <div>
       <Tiden
 h2="The past"
-p="How did it start?..."
+p="How did it start?"
 billede="/img/products/past.webp" alt="Billede af diverse kombucha smag."
 buttontxt="PAST"
 />
-  <div class="categoriespa">
+  <div>
   <ul class="productlist">
     <section class="products">
-      {data.map((product) => {
+      {data
+      .sort((a, b) => a.id - b.id)  // Sorter dataen efter ID
+      .map((product) => {
         if (product.category === 'past') {
           return (
             <article class="time">
@@ -48,10 +50,12 @@ p="What's in the moment?"
 billede="/img/products/present.webp" alt="Billede af diverse kombucha smag."
 buttontxt="PRESENT"
 />
-<div class="categoriesppr">
+<div>
   <ul class="productlist present">
     <section class="products">
-      {data.map((product) => {
+      {data
+      .sort((a, b) => a.id - b.id)  // Sorter dataen efter ID
+      .map((product) => {
         if (product.category === 'present') {
           return (
             <article class="time">
@@ -76,10 +80,12 @@ p="What comes next?"
 billede="/img/products/future.webp" alt="Billede af diverse kombucha smag."
 buttontxt="FUTURE"
 />   
-<div class="categoriesf">
+<div>
     <ul class="productlist future">
     <section class="products">
-      {data.map((product) => {
+      {data
+      .sort((a, b) => a.id - b.id)  // Sorter dataen efter ID
+      .map((product) => {
         if (product.category === 'future') {
           return (
             <article class="time">
@@ -129,7 +135,9 @@ img {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
+         margin-bottom: 48px;
     }
+
 .productlist {
     display: none;
 }
@@ -138,6 +146,60 @@ img {
     display: block;
     padding: 0;
     margin: 40px auto;
+     max-width: 65ch;
+}
+
+.products {
+  list-style: none;
+  padding: 1rem 1rem;
+  /* border-top: 1px solid var(--codGrey); */
+  border-bottom: 1px solid var(--codGrey);
+  background-image: url(/img/products/tealeaf.svg), url(/img/products/flowerleft.svg), url(/img/products/flowerright.svg);
+  background-repeat: no-repeat;
+  background-position: left top, center center, bottom center;
+  background-size: 30%, 110%, 80%;
+}
+.time {
+  margin: 48px 1rem;
+  border-bottom: 1px solid var(--yellow600);
+}
+
+.time h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-family: var(--h2);
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.time p {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-family: var(--h2);
+}
+
+.time img {
+  margin-top: 8px;
+  margin-bottom: 48px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+/* Juster tekstjusteringen til højre for hver anden .time artikel */
+article.time:nth-of-type(2n) {
+  text-align: right;
+  color: var(--red);
+}
+
+.products li {
+  margin: 100px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .animated.moveUp {
@@ -157,15 +219,16 @@ img {
     transform: translateY(0);
   }
 }
-.time {
-  margin: 0 1rem;
-}
-/* Juster tekstjusteringen til højre for hver anden .time artikel */
-article.time:nth-of-type(2n) {
-  text-align: right;
-}
 
-
+@media (min-width: 800px) {
+   .container {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      margin-inline: 2rem;
+    }
+}
 
 </style>
 
