@@ -1,4 +1,25 @@
 h1 {
   color: var(--red);
   font-family: var(--h1);
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image {
+  background-image: url("/img/dferments_still_ewp-20.webp");
+  height: 50vh;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  left: 0;
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  h1 {
+    font-size: 60px;
+  }
 }
