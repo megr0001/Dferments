@@ -30,11 +30,17 @@
 
   /*fonts*/
 
-  --h1: "silkflower";
-  --h2: "questa", serif;
-  --primary-font: 
+  --h1-font: "silkflower";
+  --h2-font: "questa", serif;
+  --primary-font: ;
 
-  /*font size - mobil*/ --h1-;
+  /*font size - mobil*/
+  --h1-sizeM: 40px;
+  --h2-sizeM: 24px;
+  --p-sizeM: 18px;
 
   /*font size - desktop*/
+  --h1-sizeD: 60px;
+  --h2-sizeD: 32px;
+  --p-sizeD: 24px;
 }
