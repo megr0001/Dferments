@@ -1,9 +1,7 @@
 ---
-import Tiden from "../../components/products/Tiden.astro"
-// const { data } = Astro.props;
-// console.log(data);
+const {data} = Astro.props;
+console.log(data);
 ---
-
 <!-- artists/acid-pauli -->
 <!-- husk /foran artists da det skal komme fra artists(root) map ellers siger den bare lineup/kunstner -->
 <!-- <a href={`/artists/${data.slug}`}>
@@ -19,24 +17,27 @@ import Tiden from "../../components/products/Tiden.astro"
 </article>
 </a> -->
 
-<article class="container">
-    <div class="time_container">
-<Tiden />
-<Tiden />
-<Tiden />   
-    </div>
-</article>
+<article class=time>
+    <h2>{data.product_name}</h2>
+	<p>{data.beskrivelse}</p>
+</article> -->
 
-
-<style>
-    
-    .container {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+<!-- <style>
+    img {
         width: 100%;
         height: auto;
-        gap: 0.5rem;
     }
-</style>
+
+    .card {
+        display: none;
+    }
+
+    .card.active {
+  display: block; 
+
+.button.active {
+  font-weight: bold; 
+}
+</style> -->
+
+
