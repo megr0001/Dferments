@@ -1,32 +1,110 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Ppf from "../components/products/Ppf.astro";
+import Tiden from "../components/products/Tiden.astro";
 
-// const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/t8_karrusel_supabase",
-// {
-//     method: "GET",
-//     headers: {
-//         apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6ZmpibGV4aHdvaWpnYmdtaXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNDIxMTQsImV4cCI6MjAyNTkxODExNH0.O7nP4UolRZVDGhGQ3-0RoYhP0SEzLOyHHhp125SwNvw"
-//     },
-// }).then((res) => res.json());
-
-// console.log(data);
+const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/DFERMENTS",
+{
+    method: "GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6ZmpibGV4aHdvaWpnYmdtaXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNDIxMTQsImV4cCI6MjAyNTkxODExNH0.O7nP4UolRZVDGhGQ3-0RoYhP0SEzLOyHHhp125SwNvw"
+    },
+}).then((res) => res.json());
 ---
 
 <MainLayout title="DRINK ME">
     <h1>Products</h1>
+    <article class="container">
+      <div>
+      <Tiden
+h2="The past"
+p="How did it start?"
+billede="/img/products/past.webp" alt="Billede af diverse kombucha smag."
+buttontxt="PAST"
+/>
+  <div>
+  <ul class="productlist">
+    <section class="products">
+      {data
+      .sort((a, b) => a.id - b.id)  // Sorter dataen efter ID
+      .map((product) => {
+        if (product.category === 'past') {
+          return (
+            <article class="time">
+              <h2>{product.product_name}</h2>
+              <p>{product.beskrivelse}</p>
+            </article>
+          );
+        } else {
+          return null;
+        }
+      })}
+    </section>
+  </ul>
+</div>
+</div>
 
-    <Ppf />
+<div class="secondtime">
+<Tiden
+h2="The present"
+p="What's in the moment?"
+billede="/img/products/present.webp" alt="Billede af diverse kombucha smag."
+buttontxt="PRESENT"
+/>
+<div>
+  <ul class="productlist present">
+    <section class="products">
+      {data
+      .sort((a, b) => a.id - b.id)  // Sorter dataen efter ID
+      .map((product) => {
+        if (product.category === 'present') {
+          return (
+            <article class="time">
+              <h2>{product.product_name}</h2>
+              <p>{product.beskrivelse}</p>
+              <img src={product.img} alt={product.beskrivelse} />
+            </article>
+          );
+        } else {
+          return null;
+        }
+      })}
+    </section>
+  </ul>
+</div>
+</div>
 
-<!-- <section class="artists">
-    {data.map((show) => {
-    return <Card data={show} className="card" />;
-    })
-    }
-</section> -->
+<div class="thirdtime">
+<Tiden
+h2="The future"
+p="What comes next?"
+billede="/img/products/future.webp" alt="Billede af diverse kombucha smag."
+buttontxt="FUTURE"
+/>   
+<div>
+    <ul class="productlist future">
+    <section class="products">
+      {data
+      .sort((a, b) => a.id - b.id)  // Sorter dataen efter ID
+      .map((product) => {
+        if (product.category === 'future') {
+          return (
+            <article class="time">
+              <h2>{product.product_name}</h2>
+              <p>{product.beskrivelse}</p>
+            </article>
+          );
+        } else {
+          return null;
+        }
+      })}
+    </section>
+  </ul>
+  </div>
+</article>
 </MainLayout>
 
 <style>
+  /* foreløbig */
     * {
   box-sizing: border-box;
 }
@@ -34,6 +112,7 @@ import Ppf from "../components/products/Ppf.astro";
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--beige);
 }
 
 img {
@@ -41,14 +120,186 @@ img {
   height: auto;
   display: block;
 }
-/* foreløbig */
 
-    h1 {
+   h1 {
         text-transform: uppercase;
-        color:#BD0200;
-        /* mangler silk flower font */
+        color: var(--red);
+        font-family: var(--h1-font);
         text-align: center;
         margin: 48px 0 40px 0;
         font-size: 40px;
     }
+  .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+         margin-bottom: 48px;
+    }
+
+.productlist {
+    display: none;
+}
+
+.productlist.active {
+    display: block;
+    padding: 0;
+    margin: 40px auto;
+     max-width: 65ch;
+}
+
+.products {
+  list-style: none;
+  /* padding: 1rem 1rem; */
+  /* border-top: 1px solid var(--codGrey); */
+  border-bottom: 1px solid var(--codGrey);
+  background-image: url(/img/products/tealeaf.svg), url(/img/products/flowerleft.svg), url(/img/products/flowerright.svg);
+  background-repeat: no-repeat;
+  background-position: left top, center center, bottom center;
+  background-size: 30%, 110%, 80%;
+}
+
+.time {
+  /* margin: 48px 1rem; */
+  border-bottom: 1px solid var(--yellow600);
+  margin: 2rem; /* Tilføj lidt plads mellem hver time */
+}
+
+.time h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-family: var(--h2-font);
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.time p {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-family: var(--h2-font);
+}
+
+.time img {
+  margin-top: 8px;
+  margin-bottom: 48px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+/* Juster tekstjusteringen til højre for hver anden .time artikel */
+article.time:nth-of-type(2n) {
+  text-align: right;
+  color: var(--red);
+}
+
+.animated.moveUp {
+   opacity: 0;
+    transform: translateY(40px);
+    animation-name: moveUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes moveUp {
+  0% {
+     opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 800px) {
+h1 {
+        margin: 96px 0 64px 0;
+        font-size: 60px;
+    }
+    
+    .container {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items:start;
+      margin-bottom: 96px;
+      margin-inline: 2rem;
+      gap: 32px;
+    }
+
+.productlist.active {
+  position: absolute;
+  display: contents;
+}
+
+.products {
+margin: 5rem 0;
+padding-inline: 2rem;
+border-bottom: 2px solid var(--codGrey);
+gap: 2rem;
+
+background-position: left top, left center, bottom right;
+  background-size: 20%, 90%, 60%;
+
+  position: absolute; /* Flyt .products ud af det normale flow */
+  left: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+
+    .time {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+    flex-basis: calc(33.33% - 2rem); /* Beregn bredden på hver time */
+}
+
+    .time h2 {
+  margin: 0 0 24px 0;
+   
+}
+.time p {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+}
+
+.time img {
+  margin-top: 32px;
+  height: auto;
+  width: 70%;
+}
+article.time:nth-of-type(2n) {
+  text-align: left;
+}
+}
 </style>
+
+<script>
+// animation moveup
+document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated', 'moveUp');
+                observer.unobserve(entry.target);  // Stop observing once animated
+            }
+        });
+    }, {
+        threshold: 0.1  // Trigger when 10% of the element is visible
+    });
+
+    const items = document.querySelectorAll('.productlist');
+    items.forEach(item => {
+        observer.observe(item);
+    });
+});
+</script>
