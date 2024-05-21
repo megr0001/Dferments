@@ -124,7 +124,7 @@ img {
    h1 {
         text-transform: uppercase;
         color: var(--red);
-        font-family: var(--h1);
+        font-family: var(--h1-font);
         text-align: center;
         margin: 48px 0 40px 0;
         font-size: 40px;
@@ -158,30 +158,18 @@ img {
   background-repeat: no-repeat;
   background-position: left top, center center, bottom center;
   background-size: 30%, 110%, 80%;
-
-
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  position: absolute; /* Flyt .products ud af det normale flow */
-  top: 0;
-  left: 0;
-  width: 100%; /* Sæt bredden til at være 100% af viewport */
-  margin: 0; /* Fjern eventuel margin */
 }
 
 .time {
   /* margin: 48px 1rem; */
   border-bottom: 1px solid var(--yellow600);
-  flex-basis: calc(33.33% - 2rem); /* Beregn bredden på hver time */
-  margin: 1rem; /* Tilføj lidt plads mellem hver time */
+  margin: 2rem; /* Tilføj lidt plads mellem hver time */
 }
 
 .time h2 {
   margin: 0 0 8px 0;
   font-size: 24px;
-  font-family: var(--h2);
+  font-family: var(--h2-font);
   text-transform: uppercase;
   font-style: italic;
 }
@@ -189,7 +177,7 @@ img {
 .time p {
   margin: 0 0 10px 0;
   font-size: 18px;
-  font-family: var(--h2);
+  font-family: var(--h2-font);
 }
 
 .time img {
@@ -249,13 +237,21 @@ h1 {
 }
 
 .products {
-margin: 45rem 0;
+margin: 5rem 0;
 padding-inline: 2rem;
 border-bottom: 2px solid var(--codGrey);
 gap: 2rem;
 
 background-position: left top, left center, bottom right;
   background-size: 20%, 90%, 60%;
+
+  position: absolute; /* Flyt .products ud af det normale flow */
+  left: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
 }
 
     .time {
@@ -264,6 +260,7 @@ background-position: left top, left center, bottom right;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+    flex-basis: calc(33.33% - 2rem); /* Beregn bredden på hver time */
 }
 
     .time h2 {

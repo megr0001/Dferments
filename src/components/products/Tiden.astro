@@ -38,7 +38,7 @@ const {h2, p, billede, buttontxt} = Astro.props;
     width: 360px;
     height: 430px;
       overflow: hidden;
-    transform: scale(1);
+    /* transform: scale(1); */
 }
 
 .image_container.full {
@@ -92,7 +92,7 @@ const {h2, p, billede, buttontxt} = Astro.props;
 
 .standard h2 {
     font-size: 24px;
-    font-family: var(--h2);
+    font-family: var(--h2-font);
     bottom: 70px;
   left: 20px;
     text-transform: uppercase;
@@ -113,7 +113,7 @@ position: absolute;
 
     width: 101%;
   height: 100%;
-  font-family: var(--h1);
+  font-family: var(--h1-font);
   font-size: 40px;
   letter-spacing: 2px;
   background: var(--red);
