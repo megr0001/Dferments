@@ -1,5 +1,6 @@
 ---
 const {h2, p, billede, buttontxt} = Astro.props;
+const { data } = Astro.props;
 ---
 <div class="tiden">
   <div class="image_container startposition" id="imageFull">
@@ -14,12 +15,6 @@ const {h2, p, billede, buttontxt} = Astro.props;
 </div>
 </div>
 
-  <!-- <div class="hover" style="display: none;">			
-		<div class="description">
-		<p>Kombucha, enjoy , taste ....</p>
-        </div>
-	</div> -->
-    
 <style>
 .tiden {
     position: relative;

@@ -1,14 +1,15 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Tiden from "../components/products/Tiden.astro";
-
-const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/DFERMENTS",
+const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferments",
 {
     method: "GET",
     headers: {
         apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6ZmpibGV4aHdvaWpnYmdtaXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNDIxMTQsImV4cCI6MjAyNTkxODExNH0.O7nP4UolRZVDGhGQ3-0RoYhP0SEzLOyHHhp125SwNvw"
     },
-}).then((res) => res.json());
+}
+).then((res) => res.json());
+console.log(data);
 ---
 
 <MainLayout title="DRINK ME">
@@ -30,7 +31,9 @@ buttontxt="PAST"
         if (product.category === 'past') {
           return (
             <article class="time">
+              <a href={`/products/${product.slug}`}>
               <h2>{product.product_name}</h2>
+              </a>
               <p>{product.beskrivelse}</p>
             </article>
           );
