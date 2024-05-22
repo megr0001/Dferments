@@ -51,7 +51,7 @@ img {
 
   --h1-font: "silkflower";
   --h2-font: "questa", serif;
-  --primary-font: ;
+  --primary-font: "Varela";
 
   /*font size - mobil*/
   --h1-sizeM: 40px;
@@ -61,5 +61,5 @@ img {
   /*font size - desktop*/
   --h1-sizeD: 60px;
   --h2-sizeD: 32px;
-  --p-sizeD: 24px;
+  --p-sizeD: 22px;
 }

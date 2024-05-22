@@ -7,6 +7,10 @@ h1 {
   margin-bottom: 50px;
 }
 
+p {
+  font-family: var(--primary-font);
+}
+
 .hero-image {
   background-image: url("/img/DFerments_Still_EWP-21.jpg");
   height: 60vh;
