@@ -17,70 +17,164 @@ h1 {
 
 h2 {
   font-family: var(--h2-font);
-  font-size: 18px;
+  font-size: 17px;
+}
+p {
+  font-size: 15px;
 }
 
 .highligt {
   color: var(--yellow600);
 }
+/* ----- MOBIL -------- */
+@media (max-width: 800px) {
+  /*  FØRSTE AFSNIT   */
+  .event_container1 {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .event_text1 {
+    margin-left: 40px;
+    align-content: center;
+  }
+  .event_text1 h2 {
+    margin-bottom: 10px; /* Mellemrum under hver h2 */
+  }
+  .event_text1 p {
+    margin-bottom: 20px; /* Mellemrum under hver p */
+  }
+  .billede1 img {
+    width: 100%;
+    height: 100vw;
+    border-top-left-radius: 400px;
+    border-bottom-left-radius: 400px;
+    margin-bottom: 2rem;
+  }
 
-/*  FØRSTE AFSNIT   */
-.event_container1 {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  margin-top: 2rem;
-  margin-bottom: 20px;
-}
-.event_text1 {
-  margin-left: 30px;
+  /*   ANDET AFSNIT   */
+  .event_container2 {
+    margin-bottom: 3rem;
+  }
+  .event_text2 {
+    margin-left: 70px;
+    align-content: center;
+  }
+  .event_text2 h2 {
+    margin-bottom: 10px; /* Mellemrum under hver h2 */
+  }
+  .event_text2 p {
+    margin-bottom: 20px; /* Mellemrum under hver p */
+  }
+
+  .billede2 img {
+    width: 100%;
+    height: 100vw;
+    border-top-right-radius: 400px;
+    border-bottom-right-radius: 400px;
+    margin-bottom: 2rem;
+  }
+
+  /*   TREDJE AFSNIT   */
+  .event_container3 {
+    margin-bottom: 5rem;
+  }
+  .event_text3 {
+    margin-left: 40px;
+    align-content: center;
+  }
+  .event_text3 h2 {
+    margin-bottom: 10px; /* Mellemrum under hver h2 */
+  }
+  .event_text3 p {
+    margin-bottom: 20px; /* Mellemrum under hver p */
+  }
+
+  .billede3 img {
+    width: 100%;
+    height: 100vw;
+    border-top-left-radius: 400px;
+    border-bottom-left-radius: 400px;
+    margin-bottom: 2rem;
+  }
 }
 
-.billede1 img {
-  width: 100%;
-  height: 30vw;
-  border-top-left-radius: 400px;
-  border-bottom-left-radius: 400px;
-}
+/* ----- COMPUTER -------- */
+@media (min-width: 800px) {
+  /*  FØRSTE AFSNIT   */
+  .event_container1 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .event_text1 {
+    margin-left: 40px;
+    align-content: center;
+  }
+  .event_text1 h2 {
+    margin-bottom: 10px; /* Mellemrum under hver h2 */
+  }
+  .event_text1 p {
+    margin-bottom: 20px; /* Mellemrum under hver p */
+  }
 
-/*   ANDET AFSNIT   */
-.event_container2 {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  margin-bottom: 20px;
-}
-.event_text2 {
-  margin-left: 70px;
-}
+  .billede1 img {
+    width: 100%;
+    height: 35vw;
+    border-top-left-radius: 400px;
+    border-bottom-left-radius: 400px;
+  }
 
-.billede2 img {
-  width: 100%;
-  height: 30vw;
-  border-top-right-radius: 400px;
-  border-bottom-right-radius: 400px;
-}
+  /*   ANDET AFSNIT   */
+  .event_container2 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 3rem;
+  }
+  .event_text2 {
+    margin-left: 70px;
+    align-content: center;
+  }
+  .event_text2 h2 {
+    margin-bottom: 10px; /* Mellemrum under hver h2 */
+  }
+  .event_text2 p {
+    margin-bottom: 20px; /* Mellemrum under hver p */
+  }
 
-/*   TREDJE AFSNIT   */
-.event_container3 {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  margin-bottom: 20px;
-}
-.event_text3 {
-  margin-left: 30px;
-}
+  .billede2 img {
+    width: 100%;
+    height: 35vw;
+    border-top-right-radius: 400px;
+    border-bottom-right-radius: 400px;
+  }
 
-.billede3 img {
-  width: 100%;
-  height: 30vw;
-  border-top-left-radius: 400px;
-  border-bottom-left-radius: 400px;
+  /*   TREDJE AFSNIT   */
+  .event_container3 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-bottom: 5rem;
+  }
+  .event_text3 {
+    margin-left: 40px;
+    align-content: center;
+  }
+  .event_text3 h2 {
+    margin-bottom: 10px; /* Mellemrum under hver h2 */
+  }
+  .event_text3 p {
+    margin-bottom: 20px; /* Mellemrum under hver p */
+  }
+
+  .billede3 img {
+    width: 100%;
+    height: 35vw;
+    border-top-left-radius: 400px;
+    border-bottom-left-radius: 400px;
+  }
 }
 
 /* fungerer ikke endnu */
-.event_container2 {
-  max-width: 800px; /* Just for demonstration */
-}
-
 .text-container p {
   margin-left: 0; /* Reset margin */
 }
