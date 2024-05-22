@@ -1,0 +1,180 @@
+h1 {
+  color: var(--red);
+  font-family: var(--h1-font);
+  font-size: var(--h1-sizeM);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.hero-image {
+  background-image: url("/img/DFerments_Still_EWP-21.jpg");
+  height: 60vh;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  left: 0;
+  width: 100%;
+}
+
+.about_intro {
+  margin: 30px 15%;
+}
+
+.about_intro p {
+  font-size: var(--p-sizeM);
+}
+
+.image1 {
+  display: flex;
+  justify-content: right;
+}
+.image1 img {
+  width: 97%;
+  height: 60vw;
+  border-top-left-radius: 400px;
+  border-bottom-left-radius: 400px;
+}
+
+.about_text {
+  margin: 30px 15%;
+  display: grid;
+  gap: 15px;
+}
+
+.about_text p {
+  font-size: var(--p-sizeM);
+}
+
+.image2 {
+  display: flex;
+  justify-content: left;
+}
+
+.image2 img {
+  width: 97%;
+  height: 60vw;
+  border-top-right-radius: 400px;
+  border-bottom-right-radius: 400px;
+}
+
+.ferment_text {
+  margin: 30px 15%;
+  display: grid;
+  gap: 15px;
+}
+
+.ferment_text p {
+  font-size: var(--p-sizeM);
+}
+
+.about_boks {
+  display: grid;
+}
+
+.order {
+  order: 1;
+}
+
+.ferment_photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  margin: 0 15%;
+}
+
+.ferment_photos img {
+  border-radius: 10px;
+}
+
+@media (min-width: 800px) {
+  h1 {
+    font-size: var(--h1-sizeD);
+  }
+
+  .hero-image {
+    background-image: url("/img/dferments_about2.png");
+  }
+
+  .about_intro {
+    margin: 30px 15%;
+  }
+
+  .about_intro p {
+    font-size: var(--p-sizeD);
+  }
+
+  .textbox1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .image1 {
+    display: flex;
+    justify-content: right;
+  }
+  .image1 img {
+    width: 97%;
+    height: 40vw;
+    border-top-left-radius: 400px;
+    border-bottom-left-radius: 400px;
+  }
+
+  .about_text {
+    margin: 30px 15%;
+    display: grid;
+    gap: 15px;
+  }
+
+  .about_text p {
+    font-size: var(--p-sizeD);
+  }
+
+  .textbox2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .image2 {
+    display: flex;
+    justify-content: left;
+  }
+
+  .image2 img {
+    width: 97%;
+    height: 40vw;
+    border-top-right-radius: 400px;
+    border-bottom-right-radius: 400px;
+  }
+
+  .ferment_text {
+    margin: 30px 15%;
+    display: grid;
+    gap: 15px;
+  }
+
+  .ferment_text p {
+    font-size: var(--p-sizeD);
+  }
+
+  .about_boks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .order {
+    order: -1;
+  }
+
+  .ferment_photos {
+    height: 40vw;
+  }
+
+  .ferment_photos img {
+    border-radius: 10px;
+    height: 20vw;
+  }
+}

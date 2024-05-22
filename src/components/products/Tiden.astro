@@ -1,27 +1,18 @@
+---
+const {h2, p, billede, buttontxt} = Astro.props;
+const { data } = Astro.props;
+---
 <div class="tiden">
-  <img src="/img/products/past.webp" alt="Billede af diverse kombucha smag.">
-  <div class="standard">
-		<h2>The past</h2>
-		<p>How did it start?...</p>
-         <div class="button">Past</div>
-    </div> 
-  
-  <div class="hover">			
-		<div class="description">
-		<p>Kombucha, enjoy , taste ....</p>
-        </div>
-	</div>
-    
-    <div class="pastitems"></div>
-        <ul class="products">
-        <!-- kombucha -->
-        <li>hej</li>
-        <!-- kombucha -->
-        <li>yo</li>
-        <!-- kombucha -->
-        <li>man</li>
-    </ul>
-    </div>
+  <div class="image_container startposition" id="imageFull">
+    <img src={billede}>
+      <div class="overlay">
+        <div class="standard">
+		      <h2>{h2}</h2>
+		      <p>{p}</p>
+         <button class="button buttonClicked" id="imageFull">{buttontxt}</button>
+        </div> 
+  </div>
+</div>
 </div>
 
 <style>
@@ -30,119 +21,254 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 1.5rem;
+}
+.image_container {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  transition: all 0.6s ease-out;
 }
 
-.tiden img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+.image_container.startposition {
+    width: 360px;
+    height: 430px;
+      overflow: hidden;
+    /* transform: scale(1); */
+}
+
+.image_container.full {
+  width: 88%;
+  height: auto;
+  overflow: visible;
+}
+
+.image_container img {
+  display: block;
+  border-radius: 10px;
+    width: 100%; 
+  height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.8)
+  );
+  border-radius: 10px;
+  z-index: 1;
+  pointer-events: none; /* Sikrer at overlayet ikke forstyrrer klik */
 }
 
 .standard {
     position: absolute;
-     background: 
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.4)
-    );
-    width: 382px;
-  height: 252.19px;
-  border-radius: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .standard h2, p {
-    color: beige;
       position: absolute;
+  max-width: 65ch;
 }
 
 .standard h2 {
     font-size: 24px;
-    bottom: 40px;
-  left: 16px;
+    font-family: var(--h2-font);
+    bottom: 70px;
+  left: 20px;
     text-transform: uppercase;
+    color: var(--yellow);
 }
 
 .standard p {
-      font-size: 18px;
-    bottom: 8px;
-  left: 16px;
+  font-size: 20px;
+  bottom: 38px;
+  left: 20px;
+    color: var(--beige);
 }
 
 .button {
 position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-   background-color: transparent;
-  border: 2px solid beige;
-  border-radius: 10px;
-  color: beige;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 10px 20px;
+ border-radius: 10px;
+ border: none;
+
+    width: 101%;
+  height: 100%;
+  font-family: var(--h1-font);
+  font-size: 40px;
+  letter-spacing: 2px;
+  background: var(--red);
+  -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+  mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+  -webkit-mask-size: 3000% 100%;
+  mask-size: 3000% 100%;
+  color: var(--yellow600);
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-   animation: pulse 2s infinite alternate;
+  -webkit-animation: ani2 0.7s steps(29) forwards;
+  animation: ani2 0.7s steps(29) forwards;
+
+    pointer-events: auto; 
+    /* masks and animation fra Copyright (c) 2024 by Yugam (https://codepen.io/pizza3/pen/qmerBv)*/
 }
 
 .button:hover {
-  background-color: orange;
-  color: beige;
-  border-color: orange;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
-  animation: none; /* Stop pulse animation on hover */
+  background-color: var(--codGrey);
+  color: var(--yellow600);
+ -webkit-animation: ani 0.7s steps(29) forwards;
+  animation: ani 0.7s steps(29) forwards;
 }
 
-
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
+.button.active {
+   /* -webkit-mask: none;
+  mask: none;  */
+  background-color: transparent;
+  color: transparent;
+}
+@-webkit-keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
   }
-  100% {
-    transform: translate(-50%, -50%) scale(1.1);
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
   }
 }
 
-.button.clicked {
-  background-color: #000000;
-  color: #ffffff;
-  animation: none; /* Stop pulse animation when clicked */
-    transform: translate(-50%, -50%) scale(1.1);
+@keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
 }
+
+@-webkit-keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+
+@keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+   /* masks and animation fra Copyright (c) 2024 by Yugam (https://codepen.io/pizza3/pen/qmerBv)*/
+
+   @media (min-width: 800px) {
+.image_container.startposition {
+    width: 400px;
+    height: 550px;
+}
+
+.image_container.full {
+  width: 60%;
+  height: auto;
+  padding: 0;
+}
+
+.standard p {
+  font-size: 24px;
+  bottom: 24px;
+}
+
+.button {
+  font-size: 52px;
+}
+   }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const button = document.querySelector('.button') as HTMLElement;
-  const pastItems = document.querySelector('.pastitems') as HTMLElement;
-  const productsList = document.querySelector('.products') as HTMLElement;
-  let isOpen = false;
+ document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".button");
+    const productLists = document.querySelectorAll(".productlist");
 
-  // Eventlistener for knaptryk
-  button.addEventListener('click', function() {
-    if (isOpen) {
-      pastItems.style.display = 'none'; // Skjuler pastitems
-      productsList.style.display = 'none'; // Skjuler produkter
-    } else {
-      pastItems.style.display = 'block'; // Viser pastitems
-      productsList.style.display = 'block'; // Viser produkter
+    // Function to deactivate all buttons and lists
+    function deactivateAll() {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        productLists.forEach(list => list.classList.remove("active"));
     }
-    isOpen = !isOpen; // Ændrer knappens tilstand
-  });
 
-  // Eventlistener for klik uden for knappen og UL-området
-  document.addEventListener('click', function(event) {
-    const targetElement = event.target as HTMLElement;
+    // Add click event to each button
+    buttons.forEach((button, index) => {
+        button.addEventListener("click", (event) => {
+            event.stopPropagation(); // Prevent the click event from bubbling up to the document
+            
+            // If the button is already active, deactivate it and its corresponding list
+            if (button.classList.contains("active")) {
+                button.classList.remove("active");
+                productLists[index].classList.remove("active");
+            } else {
+                // Otherwise, deactivate all and activate the clicked button and its corresponding list
+                deactivateAll();
+                button.classList.add("active");
+                productLists[index].classList.add("active");
+            }
+        });
+    });
 
-    // Hvis det klikkede element ikke er knappen eller inden for UL-området
-    if (!targetElement.classList.contains('button') && !targetElement.closest('.products')) {
-      pastItems.style.display = 'none'; // Skjuler pastitems
-      productsList.style.display = 'none'; // Skjuler produkter
-      isOpen = false; // Opdaterer knappens tilstand
-    }
-  });
+    // Prevent list click from closing itself
+    productLists.forEach((list) => {
+        list.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+    });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Hent alle knapper og billeder
+    const buttons = document.querySelectorAll('.button');
+    const images = document.querySelectorAll('.image_container');
+
+    // Tilføj event listener til hver knap
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', function() {
+            // Først, sæt alle billeder til "full"
+            images.forEach((image, imgIndex) => {
+                if (imgIndex !== index) {
+                    image.classList.remove('full');
+                    image.classList.add('startposition');
+                }
+            });
+
+            // Skift tilstanden for det klikkede billede
+            const image = images[index];
+            if (image.classList.contains('startposition')) {
+                image.classList.remove('startposition');
+                image.classList.add('full');
+            } else {
+                image.classList.remove('full');
+                image.classList.add('startposition');
+            }
+        });
+    });
+});
 </script>

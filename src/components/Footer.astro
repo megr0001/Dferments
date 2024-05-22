@@ -1,0 +1,218 @@
+<footer>
+    <section class="subscribe">
+        <p>DFerments: Secrets Unveiled - <br> Subscribe Now!</p>
+
+
+        <form class="email-form" action="/subscribe" method="post">
+
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <button type="submit">SUBSCRIBE</button>
+        </form>
+
+
+
+    </section>
+
+
+    <section class="menu">
+        <div class="wrapper">
+            <li><a href="/">DFERMENTS</a></li>
+        </div>
+        <div class="wrapper">
+            <li> <a href="/kombucha">DRIK MIG</a></li>
+        </div>
+        <div class="wrapper">
+            <li><a href="/events">EVENTS & POPUPS</a></li>
+        </div>
+        <div class="wrapper">
+            <li><a href="/about">WHO IS D?</a></li>
+        </div>
+        <div class="wrapper">
+            <li><a href="/contact">CONTACT & COLLABS</a></li>
+        </div>
+
+    </section>
+
+
+    <section class="icons">
+
+        <div class="fb">
+            <a href="https://www.facebook.com/glougloume"><img src="/public/svg/fb.svg" alt="Facebook icon"></a>
+        </div>
+        <div class="ig"><a href="https://www.instagram.com/dferments/"><img src="/public/svg/ig.svg"
+                    alt="Instagram icon"></a></div>
+        <div class="smiley"><a href="#"><img src="/public/svg/smiley.svg" alt="Smiley icon"></a></div>
+
+
+
+    </section>
+
+</footer>
+
+
+<style>
+/*desktop*/
+
+footer {
+    border-top: 1px solid;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3rem;
+    position: sticky;
+    background-color: var(--beige);
+}
+
+.subscribe {
+    display: flex;
+    flex-direction: column;
+}
+
+.subscribe p {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form .input {
+    padding-bottom: 2rem;
+    border: none;
+}
+
+.email-form input[type="email"] {
+
+
+    margin-bottom: 1.5rem;
+background-color: var(--beige);
+    border: none;
+    border-bottom: 1px solid var(--codGrey);
+}
+
+.email-form input[type="email"]:focus {
+
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--codGrey);
+}
+
+
+.email-form button {
+    border: none;
+    background-color: var(--yellow600);
+    color: var(--beige);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: var(--h2);
+}
+
+
+
+.email-form button:hover {
+
+    background-color:#EC8C14;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 48px;
+    margin-right: 48px;
+}
+
+.menu {
+    text-align: center;
+}
+
+.menu li {
+    list-style-type: none;
+    padding-bottom: 15px;
+}
+
+
+.menu a {
+    color: var(--codGrey);
+    text-decoration: none;
+    font-family: var(--h1);
+}
+
+.menu a:hover{
+    color: #858585;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.icons img {
+    width: 30px;
+}
+
+.icons img:hover{
+    opacity: 60%;
+}
+
+.icons div {
+    padding-right: 2rem;
+    padding-top: 3rem;
+}
+
+/* mobil*/
+
+
+@media (max-width: 800px) {
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+
+
+    .subscribe {
+        order: 2;
+    }
+
+    .icons {
+        order: 1;
+
+    }
+
+    .icons div {
+        padding-left: 1rem;
+        padding-right: 3.5rem;
+
+        padding-bottom: 2rem;
+
+    }
+
+    .icons img {
+        width: 25px;
+    }
+
+    .menu {
+        order: 0;
+    }
+
+
+    .smiley {
+        padding-right: 0;
+    }
+
+
+
+    .email-form button {
+
+        margin-left: 55px;
+        margin-right: 55px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+</style>
