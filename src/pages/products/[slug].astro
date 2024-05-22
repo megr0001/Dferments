@@ -35,45 +35,39 @@ const { myData } = Astro.props;
                 <img src={myData['img']} alt={myData['product_name']}>
             </div>
             <div class="item">
-                <img src="/img/vivant.webp" alt={myData['product_name']}>
+                <img src={myData['img']} alt={myData['product_name']}>
             </div>
             <div class="item">
-                <img src="/img/sanktannae8.webp" alt={myData['product_name']}>
+                <img src={myData['img']} alt={myData['product_name']}>
             </div>
         </div>
-        <button class="btn prev">Prev</button>
-        <button class="btn next">Next</button>
+        <button class="btn prev"><img src="/img/products/arrowleft.svg" alt="left arrow svg"></button>
+        <button class="btn next"><img src="/img/products/arrowright.svg" alt="right arrow svg"></button>
         <div class="dots"></div>
      </div>
-    <div id="scrollindicator"></div>
 </MainLayout>
 
 <style>
-body {
-  min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  font-family: "Satoshi", sans-serif;
-  font-size: var(--lx-text-01);
-  font-weight: 500;
-  color: #ffffe6;
-  background-color: #10100e;
-}
-
+  h1 {
+        text-transform: uppercase;
+        color: var(--red);
+        font-family: var(--h1-font);
+        text-align: center;
+        margin: 48px 0 40px 0;
+        font-size: var(--h1-sizeM)
+    }
 .carousel_container {
-  width: 80%;
+  width: 90%;
   margin: auto;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--lx-gap);
-
+ align-items: center;
+    /* min-height: 100dvh; */
   .carousel {
-    aspect-ratio: 16/9;
     width: 100%;
+    height: auto;
     position: relative;
-    overflow: hidden;
-
     .item {
       opacity: 0;
       width: 100%;
@@ -83,78 +77,67 @@ body {
 
       img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
         object-position: center;
+        border-radius: 10px;
+        margin-bottom: 58px;
       }
-
-      .caption {
-        width: 100%;
-        padding: var(--lx-space-01);
-        position: absolute;
-        bottom: 0;
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 12px;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-
       &.active {
         opacity: 1;
         display: block;
       }
     }
   }
-
   .btn {
-    padding: 1em 2em;
+    padding: 40px 0;
     position: absolute;
     transform: translateY(-50%);
     top: 50%;
-    outline: none;
     border: none;
     cursor: pointer;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 900;
-    color: #10100e;
-    background-color: #ffffe6;
+    width: 12%;
+    height: auto;
+    background-color: transparent;
     transition: transform 0.2s ease-in-out;
 
     &:active,
     &:focus {
-      transform: translateY(-50%) scale(0.9);
+    transform: scale(1);
     }
 
     &:hover {
-      transform: translateY(-50%) scale(0.96);
+      filter: drop-shadow(0 0 0.75rem crimson);
     }
   }
 
   .prev {
-    left: -5%;
+    left: -6%;
   }
 
   .next {
-    right: -5%;
+    right: -6%;
   }
 
   .dots {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    position: absolute;
+    margin-top: 122%;
+    gap: 16px;
 
     .dot {
       cursor: pointer;
-      height: 10px;
-      width: 10px;
-      background-color: #242421;
+      height: 14px;
+      width: 14px;
+      border-radius: 10px;
+      border-color: var(--red);
+      background-color: var(--yellow600);
       transition: background-color 0.2s ease;
 
       &.active,
       &:hover {
-        background-color: #ffffe6;
+        background-color: var(--codGrey);
       }
     }
   }
@@ -172,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let dot = document.createElement("span");
     dot.classList.add("dot");
     if (index === 0) dot.classList.add("active");
-    dot.dataset.index = index;
+    dot.dataset.index = index.toString();
     dotsContainer.appendChild(dot);
   });
 
@@ -208,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Event listeners for dots
   dots.forEach((dot) => {
     dot.addEventListener("click", () => {
-      let index = parseInt(dot.dataset.index);
+      let index = parseInt((dot as HTMLSpanElement).dataset.index!);
       showItem(index);
     });
   });
