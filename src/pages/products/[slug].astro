@@ -35,15 +35,30 @@ const { myData } = Astro.props;
                 <img src={myData['img']} alt={myData['product_name']}>
             </div>
             <div class="item">
-                <img src={myData['img']} alt={myData['product_name']}>
+                <img src={myData['img2']} alt={myData['product_name']}>
             </div>
             <div class="item">
-                <img src={myData['img']} alt={myData['product_name']}>
+                <img src={myData['img3']} alt={myData['product_name']}>
             </div>
         </div>
         <button class="btn prev"><img src="/img/products/arrowleft.svg" alt="left arrow svg"></button>
         <button class="btn next"><img src="/img/products/arrowright.svg" alt="right arrow svg"></button>
         <div class="dots"></div>
+     </div>
+
+     <div class="info">
+        <h3>DFerments</h3>
+        <h2>{myData['product_name']}</h2>
+        <p>{myData['price']}</p>
+          <div>
+            <div class="quantity-input">
+              <button class="quantity-input__modifier quantity-input__modifier--left"><img src="/img/products/minus.svg" alt="minus"></button>
+              <input class="quantity-input__screen" type="text" value="6" readonly>
+              <button class="quantity-input__modifier quantity-input__modifier--right"><img src="/img/products/plus.svg" alt="plus"></button>
+            </div>
+            <!--Copyright (c) 2024 by Mystro Ken (https://codepen.io/mystroken/pen/Moraab)-->
+          </div>
+          <button class="add_to_cart">TILFØJ TIL KURV</button>
      </div>
 </MainLayout>
 
@@ -65,23 +80,24 @@ const { myData } = Astro.props;
  align-items: center;
     /* min-height: 100dvh; */
   .carousel {
-    width: 100%;
-    height: auto;
     position: relative;
+    margin-bottom: 5rem;
     .item {
       opacity: 0;
-      width: 100%;
-      height: 100%;
+      width: 392px;
+      height: 530px;
+      overflow: hidden;
       display: none;
       transition: opacity 0.5s ease-in-out;
-
       img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
         object-position: center;
         border-radius: 10px;
         margin-bottom: 58px;
       }
+
       &.active {
         opacity: 1;
         display: block;
@@ -102,11 +118,11 @@ const { myData } = Astro.props;
 
     &:active,
     &:focus {
-    transform: scale(1);
+      filter: drop-shadow(4px 15px rgba(0, 0, 0, 0.2));
     }
 
     &:hover {
-      filter: drop-shadow(0 0 0.75rem crimson);
+      filter: drop-shadow(0 0 0.75rem var(--red));
     }
   }
 
@@ -123,7 +139,7 @@ const { myData } = Astro.props;
     align-items: center;
     justify-content: center;
     position: absolute;
-    margin-top: 122%;
+    margin-top:31rem;
     gap: 16px;
 
     .dot {
@@ -131,8 +147,7 @@ const { myData } = Astro.props;
       height: 14px;
       width: 14px;
       border-radius: 10px;
-      border-color: var(--red);
-      background-color: var(--yellow600);
+      background-color:rgba(209, 104, 14, 0.3);
       transition: background-color 0.2s ease;
 
       &.active,
@@ -141,6 +156,95 @@ const { myData } = Astro.props;
       }
     }
   }
+}
+/*  info styles h3, h2 & p */
+.info h3, h2, p {
+font-family: var(--h2-font);
+font-size: 1.5rem;
+color: var(--red);
+margin-bottom: 1.5rem;
+margin-left: 1rem;
+}
+
+.info h2, p {
+margin-bottom: 1rem;
+}
+
+.info p {
+color: var(--codGrey);
+}
+/* Quantity styles */
+.quantity-input {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin: 0 0 1rem 1rem;
+}
+
+.quantity-input:focus {
+  background: var(--red);
+}
+
+.quantity-input__modifier,
+.quantity-input__screen {
+  user-select: none;
+  outline: none;
+}
+
+.quantity-input__modifier {
+  padding: 1rem;
+  width: 4rem;
+  font-size: 1.125rem;
+  font-family: var(--h2-font);
+  background: var(--white);
+  border-top: 1px solid var(--codGrey);
+  border-bottom: 1px solid var(--codGrey);
+  border-inline: none;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+.quantity-input__modifier:hover {
+  background: var(--yellow600);
+}
+
+.quantity-input__modifier--left {
+  border-radius: 10px 0 0 10px;
+  border-left: 1px solid var(--codGrey);
+}
+
+.quantity-input__modifier--right {
+  border-radius: 0 10px 10px 0;
+  border-right: 1px solid var(--codGrey);
+}
+
+.quantity-input__modifier--left img, .quantity-input__modifier--right img {
+  width: 120%;
+  height: auto
+}
+.quantity-input__screen {
+  width: 4rem;
+  padding: 1.31rem 0;
+  font-size: 1.5rem;
+  border-top: 1px solid var(--codGrey);
+  border-bottom: 1px solid var(--codGrey);
+  border-inline: none;
+  text-align: center;
+}
+/* add_to_cart styles */
+.add_to_cart {
+  border-radius: 10px;
+  padding: 26px 36px;
+  width: 93%;
+  height: auto;
+  margin: 0 auto 2rem auto;
+  display: block;
+  color: var(--beige);
+  font-size:1.5rem;
+  font-family: var(--h2-font);
+  background-color: var(--yellow600);
+  border:none;
 }
 </style>
 
@@ -196,4 +300,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+// Quantity js
+document.addEventListener('DOMContentLoaded', () => {
+      const decrementButton = document.querySelector('.quantity-input__modifier--left');
+      const incrementButton = document.querySelector('.quantity-input__modifier--right');
+      const quantityInput = document.querySelector('.quantity-input__screen') as HTMLInputElement;
+
+      let value = 6;
+
+      function updateQuantity() {
+        quantityInput.value = value.toString(); // Convert value to string
+      }
+
+      decrementButton.addEventListener('click', () => {
+        value = Math.max(0, value - 6);
+        updateQuantity();
+      });
+
+      incrementButton.addEventListener('click', () => {
+        value += 6;
+        updateQuantity();
+      });
+
+      updateQuantity();
+    });
 </script>

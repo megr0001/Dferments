@@ -9,101 +9,101 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
     },
 }
 ).then((res) => res.json());
-console.log(data);
+// console.log(data);
 ---
 
 <MainLayout title="DRINK ME">
     <h1>Products</h1>
-    <article class="container">
-      <div>
-      <Tiden
-h2="The past"
-p="How did it start?"
-billede="/img/products/past.webp" alt="Billede af diverse kombucha smag."
-buttontxt="PAST"
-/>
-  <div>
-  <ul class="productlist">
-    <section class="products">
-      {data
-      .sort((a, b) => a.id - b.id)  // Sorter dataen efter ID
-      .map((product) => {
-        if (product.category === 'past') {
-          return (
-            <article class="time">
-              <a href={`/products/${product.slug}`}>
-              <h2>{product.product_name}</h2>
-              </a>
-              <p>{product.beskrivelse}</p>
-            </article>
-          );
-        } else {
-          return null;
-        }
-      })}
-    </section>
-  </ul>
-</div>
-</div>
+    <!-- <article class="container">
+     
+    </article> -->
 
-<div class="secondtime">
-<Tiden
-h2="The present"
-p="What's in the moment?"
-billede="/img/products/present.webp" alt="Billede af diverse kombucha smag."
-buttontxt="PRESENT"
-/>
-<div>
-  <ul class="productlist present">
-    <section class="products">
-      {data
-      .sort((a, b) => a.id - b.id)  // Sorter dataen efter ID
-      .map((product) => {
-        if (product.category === 'present') {
-          return (
-            <article class="time">
-              <h2>{product.product_name}</h2>
-              <p>{product.beskrivelse}</p>
-              <img src={product.img} alt={product.beskrivelse} />
-            </article>
-          );
-        } else {
-          return null;
-        }
-      })}
-    </section>
-  </ul>
-</div>
-</div>
+      <div class="products_container">
+      <section class="products past_products">
+        <div>
+          <Tiden
+          h2="The past"
+          p="How did it start?"
+          billede="/img/products/past.webp" alt="Billede af diverse kombucha smag."
+          buttontxt="PAST"/>
+      </div>
+        <ul class="productlist">
+          {data
+          .sort((a, b) => a.id - b.id)
+          .map((product) => {
+            if (product.category === 'past') {
+              return (
+                <article class="time">
+                  <a href={`/products/${product.slug}`}>
+                    <h2>{product.product_name}</h2>
+                  </a>
+                  <p>{product.beskrivelse}</p>
+                </article>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </ul>
+      </section>
 
-<div class="thirdtime">
-<Tiden
-h2="The future"
-p="What comes next?"
-billede="/img/products/future.webp" alt="Billede af diverse kombucha smag."
-buttontxt="FUTURE"
-/>   
-<div>
-    <ul class="productlist future">
-    <section class="products">
-      {data
-      .sort((a, b) => a.id - b.id)  // Sorter dataen efter ID
-      .map((product) => {
-        if (product.category === 'future') {
-          return (
-            <article class="time">
-              <h2>{product.product_name}</h2>
-              <p>{product.beskrivelse}</p>
-            </article>
-          );
-        } else {
-          return null;
-        }
-      })}
-    </section>
-  </ul>
-  </div>
-</article>
+      <section class="products present_products">
+          <div>
+        <Tiden
+          h2="The present"
+          p="What's in the moment?"
+          billede="/img/products/present.webp" alt="Billede af diverse kombucha smag."
+          buttontxt="PRESENT"/>
+      </div>
+        <ul class="productlist">
+          {data
+          .sort((a, b) => a.id - b.id)
+          .map((product) => {
+            if (product.category === 'present') {
+              return (
+                <article class="time">
+                 <a href={`/products/${product.slug}`}>
+                  <h2>{product.product_name}</h2>
+                  </a>
+                  <p>{product.beskrivelse}</p>
+                  <img src={product.img} alt={product.beskrivelse} />
+                </article>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </ul>
+      </section>
+
+      <section class="products future_products">
+         <div>
+        <Tiden
+        h2="The future"
+        p="What comes next?"
+        billede="/img/products/future.webp" alt="Billede af diverse kombucha smag."
+        buttontxt="FUTURE"/>   
+      </div>
+        <ul class="productlist">
+          {data
+          .sort((a, b) => a.id - b.id)
+          .map((product) => {
+            if (product.category === 'future') {
+              return (
+                <article class="time">
+                  <a href={`/products/${product.slug}`}>
+                  <h2>{product.product_name}</h2>
+                  </a>
+                  <p>{product.beskrivelse}</p>
+                </article>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </ul>
+      </section>
+    </div>
 </MainLayout>
 
 <style>
@@ -133,34 +133,39 @@ img {
         font-size: 40px;
     }
   .container {
-        position: relative;
-        display: flex;
+        /* position: relative; */
+        /* display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; */
+        /* align-items: center;
         gap: 1.5rem;
-         margin-bottom: 48px;
+         margin-bottom: 48px; */
     }
 
+    .products_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 34px;
+    }
 .productlist {
-    display: none;
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
 
 .productlist.active {
-    display: block;
-    padding: 0;
-    margin: 40px auto;
-     max-width: 65ch;
-}
-
-.products {
-  list-style: none;
-  /* padding: 1rem 1rem; */
-  /* border-top: 1px solid var(--codGrey); */
-  border-bottom: 1px solid var(--codGrey);
+  display: block;
+  padding: 0;
+  margin: 32px auto;
+  max-width: 65ch;
+  /* baggrunden */
   background-image: url(/img/products/tealeaf.svg), url(/img/products/flowerleft.svg), url(/img/products/flowerright.svg);
   background-repeat: no-repeat;
   background-position: left top, center center, bottom center;
-  background-size: 30%, 110%, 80%;
+  background-size: 50%, 100%, 80%;
 }
 
 .time {
@@ -194,6 +199,9 @@ img {
   border-radius: 10px;
 }
 
+article.time {
+    margin-bottom: 1rem;
+}
 
 /* Juster tekstjusteringen til højre for hver anden .time artikel */
 article.time:nth-of-type(2n) {
@@ -221,62 +229,81 @@ article.time:nth-of-type(2n) {
 
 @media (min-width: 800px) {
 h1 {
-        margin: 96px 0 64px 0;
-        font-size: 60px;
+        margin: 6rem 0 4rem 0;
+        font-size: 3.75rem;
     }
-    
-    .container {
-      flex-direction: row;
-      justify-content: space-around;
-      align-items:start;
-      margin-bottom: 96px;
-      margin-inline: 2rem;
-      gap: 32px;
-    }
-
-.productlist.active {
-  position: absolute;
-  display: contents;
-}
-
-.products {
-margin: 5rem 0;
-padding-inline: 2rem;
-border-bottom: 2px solid var(--codGrey);
-gap: 2rem;
-
-background-position: left top, left center, bottom right;
-  background-size: 20%, 90%, 60%;
-
-  position: absolute; /* Flyt .products ud af det normale flow */
-  left: 0;
-
+    .products_container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .productlist.active {
+    background-position: left top, center center, right bottom;
+  background-size: 30%, 90%, 60%;
+  margin-top: 4rem;
+  padding: 2rem 2rem;
+  }
+.past_products .productlist.active {
+left: 156%;
+right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	max-width: 100vw;
+	position: relative;
+	width: 99vw;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: stretch;
 }
 
-    .time {
-  margin: 2rem 0;
+.present_products .productlist.active {
+left: 51%;
+right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	max-width: 100vw;
+	position: relative;
+	width: 99vw;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-    flex-basis: calc(33.33% - 2rem); /* Beregn bredden på hver time */
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: stretch;
 }
 
-    .time h2 {
-  margin: 0 0 24px 0;
-   
+.future_products .productlist.active {
+left: -55%;
+right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	max-width: 100vw;
+	position: relative;
+	width: 99vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+.products {
+margin-bottom: 6rem;
+  flex: 1;
+}
+.time {
+  margin: 4rem 0 1rem 0;
+  flex-basis: calc(33.33% - 4rem); /* Beregn bredden på hver time */
+}
+.time h2 {
+  margin: 0 0 1rem 0;
 }
 .time p {
-  margin: 0 0 8px 0;
-  font-size: 24px;
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
 }
 
 .time img {
-  margin-top: 32px;
+  margin-top: 2rem;
   height: auto;
   width: 70%;
 }
