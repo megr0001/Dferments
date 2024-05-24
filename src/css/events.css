@@ -150,7 +150,7 @@ p {
   .tealeaf_sprite {
     width: 100%;
     height: 100%;
-    background-image: url(/public/img/tealeaf.svg);
+    background-image: url(/img/tealeaf.svg);
     background-size: cover;
   }
 
@@ -257,7 +257,7 @@ p {
     margin-top: 8px;
     margin-bottom: 48px;
     margin: auto;
-    height: 500px;
+    height: 510px;
     display: block;
     margin-left: auto;
     margin-right: auto;
