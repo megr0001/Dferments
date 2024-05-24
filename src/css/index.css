@@ -21,15 +21,40 @@
   height: 100%;
   position: absolute;
   top: 10%;
-  /* left: 45%; */
-  display: flex;
-  justify-content: center;
+  left: 0;
+}
+
+#about_elements2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 10%;
 }
 
 h1 {
   text-transform: uppercase;
-  font-family: var(--h1-font);
-  color: var(--yellow);
+  font-family: var(--h1-font, Arial, sans-serif);
+  color: var(--yellow, #ffeb3b);
   font-size: 16vw;
-  text-shadow: 8px 8px 0px var(--red);
+}
+
+#text {
+  display: flex;
+  justify-content: center;
+  text-shadow: calc(var(--x) * -1) calc(var(--y) * -1) 0px #e7861b, calc(var(--x) * -2) calc(var(--y) * -2) 0px #d2430d, calc(var(--x) * -3) calc(var(--y) * -3) 0px #bd0200;
+}
+
+h2 {
+  text-align: center;
+  display: flex;
+  justify-content: left;
+  font-family: var(--h2-font);
+  font-size: 2.4vw;
+  color: var(--red950);
+}
+
+:root {
+  --x: -8px;
+  --y: -8px;
 }

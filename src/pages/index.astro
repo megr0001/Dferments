@@ -22,9 +22,34 @@ import "../css/main.css"
                 <h1>be curious</h1>
             </div>
         </div>
+        <div id="about_elements2">
+            <div id="citat">
+                <h2>THE finest<br>FERMENTATION<br>PRODUCTS</h2>
+            </div>
+        </div>
     </div>
     </MainLayout>
-  </body>
-  <footer></footer>
+ 
+ <script>
+  import { gsap } from "gsap";
+    
+import { TextPlugin } from "gsap/TextPlugin";
 
-</html>
+
+gsap.registerPlugin(TextPlugin);
+        const text = document.getElementById('text');
+        const range = 16;
+
+        function updateShadow(event) {
+            const x = Math.round(event.pageX * range / window.innerWidth) - range / 2;
+            const y = Math.round(event.pageY * range / window.innerHeight) - range / 2;
+            gsap.to(text, {
+                duration: 0.1,
+                '--x': x,
+                '--y': y,
+            });
+        }
+
+        document.body.addEventListener('mousemove', updateShadow);
+    </script>
+  </body>
