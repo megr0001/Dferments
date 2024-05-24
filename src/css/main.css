@@ -56,10 +56,10 @@ img {
   /*font size - mobil*/
   --h1-sizeM: 40px;
   --h2-sizeM: 24px;
-  --p-sizeM: 18px;
+  --p-sizeM: 15px;
 
   /*font size - desktop*/
   --h1-sizeD: 60px;
   --h2-sizeD: 32px;
-  --p-sizeD: 22px;
+  --p-sizeD: 18px;
 }
