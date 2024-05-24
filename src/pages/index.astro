@@ -1,5 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import "../css/index.css"
+import "../css/main.css"
 ---
 
 <html lang="en">
@@ -13,7 +15,14 @@ import MainLayout from "../layouts/MainLayout.astro";
   <header></header>
   <body>
     <MainLayout title="HOME">
-    <h1>Be curious</h1>
+    <div id="about">
+        <div id="about_background"></div>
+        <div id="about_elements">
+            <div id="text">
+                <h1>be curious</h1>
+            </div>
+        </div>
+    </div>
     </MainLayout>
   </body>
   <footer></footer>
