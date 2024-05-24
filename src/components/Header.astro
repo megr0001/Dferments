@@ -1,5 +1,18 @@
+---
+import "../css/main.css";
+---
+
 <header>
-    <nav>
+    <div class="menu-icon" onclick="toggleMenu()">
+        &#9776;
+    </div>
+    <div class="logo">
+        <a class="mobile_only" href="/"><img src="/public/svg/logo_d.svg" alt="Dferments' logo"></a>
+        <a class="desktop_only" href="/"><img src="/public/svg/logo_dferments.svg" alt="Dferments' logo"></a>
+    </div>
+    <div class="basket-icon">
+       <a href="#"><img src="/public/svg/basket.svg" alt="Basket icon"></a> 
+    </div>
 
         <ul class="menu">
             <li><a href="/">DFERMENTS</a></li> 
@@ -32,28 +45,160 @@
     </nav>
 </header>
 
+<div class="menu" id="menu">
+    <div class="wrapper">
+        <li><a href="/index">DFERMENTS</a></li>
+    </div>
+    <div class="wrapper">
+        <li> <a href="/produktliste">DRIK MIG</a></li>
+    </div>
+    <div class="wrapper">
+        <li><a href="/events">EVENTS & POPUPS</a></li>
+    </div>
+    <div class="wrapper">
+        <li><a href="/about">WHO IS D?</a></li>
+    </div>
+    <div class="wrapper">
+        <li><a href="/contact">CONTACT & COLLABS</a></li>
+    </div>
+</div>
+
+
+
 
 <style>
+/*mobil*/
 
-    /*mobile*/
+* {
+    margin: 0;
+    padding: 0;
+}
 
-    header{
-        background-color: var(--beige);
-    }
-.desk_only{
+p{
+    font-family: var(--primary-font);
+}
+
+.desktop_only {
     display: none;
 }
 
-
-
-
-
-
-    /*desktop*/
-    @media (min-width:800px) {
-.desk_only{
-    display: block;
+.logo img {
+    width: 25px;
 }
 
+.basket-icon img {
+    width: 40px;
+    height: auto;
+}
+
+.basket-icon img:hover{
+     opacity: 60%;
+}
+
+header {
+
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-top: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-bottom: 1px solid var(--codGrey);
+
+}
+
+.logo {
+    text-align: center;
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 30px;
+
+}
+
+.menu-icon:hover{
+    color: #858585;
+}
+
+
+.menu {
+    display: none;
+    position: absolute;
+    background-color: var(--beige);
+    top: 50px;
+    left: 0;
+    width: 100%;
+    margin: 10px;
+    padding: 30px;
+    margin-top: 50px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.menu a {
+    color: var(--codGrey);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 15px;
+    font-family: var(--h1);
+}
+
+.menu li {
+    list-style-type: none;
+    padding-bottom: 10px;
+
+}
+
+/*desktop*/
+
+
+@media (min-width: 800px) {
+
+    .desktop_only {
+        display: block;
     }
+
+    .desktop_only img {
+        width: 120px;
+    }
+
+
+    .mobile_only {
+        display: none;
+    }
+
+
+
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        /* Center the menu items */
+        width: 100%;
+    }
+
+
+
+
+
+    .wrapper li a {
+
+        text-align: left;
+        width: 100%;
+    }
+}
 </style>
+
+<script>
+function toggleMenu() {
+    var menu = document.getElementById('menu');
+    if (menu.style.display === 'none') {
+        menu.style.display = 'block';
+    } else {
+        menu.style.display = 'none';
+    }
+}
+</script>
