@@ -5,6 +5,7 @@ h1 {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  margin-top: 60px;
 }
 .events_text {
   font-family: var(--h2-font);
@@ -26,6 +27,7 @@ p {
 .highligt {
   color: var(--yellow600);
 }
+
 /* ----- MOBIL -------- */
 @media (max-width: 800px) {
   /*  FØRSTE AFSNIT   */
@@ -34,7 +36,7 @@ p {
     margin-bottom: 3rem;
   }
   .event_text1 {
-    margin-left: 40px;
+    margin-left: 30px;
     align-content: center;
   }
   .event_text1 h2 {
@@ -56,7 +58,7 @@ p {
     margin-bottom: 3rem;
   }
   .event_text2 {
-    margin-left: 70px;
+    margin-left: 30px;
     align-content: center;
   }
   .event_text2 h2 {
@@ -79,7 +81,7 @@ p {
     margin-bottom: 5rem;
   }
   .event_text3 {
-    margin-left: 40px;
+    margin-left: 30px;
     align-content: center;
   }
   .event_text3 h2 {
@@ -96,10 +98,62 @@ p {
     border-bottom-left-radius: 400px;
     margin-bottom: 2rem;
   }
+
+  .smag_os {
+    padding: 50px;
+  }
+  .time h2 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-family: var(--h2-font);
+    color: var(--yellow600);
+    text-transform: uppercase;
+    font-style: italic;
+  }
+  .time a {
+    color: var(--yellow600);
+  }
+
+  .time p {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-family: var(--h2-font);
+  }
+
+  .time img {
+    margin-top: 8px;
+    margin-bottom: 48px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-radius: 10px;
+  }
 }
 
 /* ----- COMPUTER -------- */
 @media (min-width: 800px) {
+  .illustrations {
+    position: relative;
+  }
+
+  .tealeaf_container {
+    position: absolute;
+    width: 22%;
+    aspect-ratio: 294/436;
+    top: 20%;
+    left: 5%;
+    transform: translateY(-380%);
+  }
+
+  .tealeaf_sprite {
+    width: 100%;
+    height: 100%;
+    background-image: url(/img/tealeaf.svg);
+    background-size: cover;
+  }
+
   /*  FØRSTE AFSNIT   */
   .event_container1 {
     display: grid;
@@ -172,13 +226,42 @@ p {
     border-top-left-radius: 400px;
     border-bottom-left-radius: 400px;
   }
-}
 
-/* fungerer ikke endnu */
-.text-container p {
-  margin-left: 0; /* Reset margin */
-}
+  .smag_os {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 38px;
+    padding: 50px;
+    align-items: stretch;
+  }
 
-.text-container p:nth-child(odd) {
-  margin-left: 50px; /* Adjust as needed */
+  .time h2 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-family: var(--h2-font);
+    color: var(--yellow600);
+    text-transform: uppercase;
+    font-style: italic;
+  }
+  .time a {
+    color: var(--yellow600);
+  }
+
+  .time p {
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    font-family: var(--h2-font);
+  }
+
+  .time img {
+    margin-top: 8px;
+    margin-bottom: 48px;
+    margin: auto;
+    height: 510px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-radius: 10px;
+  }
 }
