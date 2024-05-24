@@ -1,6 +1,6 @@
 #about {
   width: 100%;
-  aspect-ratio: 1512/930;
+  aspect-ratio: 390/820;
   position: relative;
   overflow: hidden;
   container-type: inline-size;
@@ -13,7 +13,7 @@
   top: 0;
   left: 0;
   background-size: cover;
-  background-image: url(/img/index_background.svg);
+  background-image: url(/img/index_mobilhero.svg);
 }
 
 #about_elements {
@@ -28,8 +28,8 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 50%;
-  left: 10%;
+  top: 65%;
+  left: 0%;
 }
 
 h1 {
@@ -48,13 +48,40 @@ h1 {
 h2 {
   text-align: center;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   font-family: var(--h2-font);
-  font-size: 2.4vw;
+  font-size: 8vw;
   color: var(--red950);
 }
 
 :root {
   --x: -8px;
   --y: -8px;
+}
+
+@media (min-width: 800px) {
+  #about {
+    aspect-ratio: 1512/930;
+  }
+
+  #about_background {
+    background-image: url(/img/index_background.svg);
+  }
+
+  #about_elements {
+    top: 10%;
+    left: 0;
+  }
+
+  #about_elements2 {
+    top: 50%;
+    left: 10%;
+  }
+
+  h2 {
+    text-align: center;
+    display: flex;
+    justify-content: left;
+    font-size: 2.4vw;
+  }
 }
