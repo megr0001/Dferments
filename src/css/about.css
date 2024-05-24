@@ -4,7 +4,7 @@ h1 {
   font-size: var(--h1-sizeM);
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin: 50px 0;
 }
 
 p {
@@ -133,6 +133,99 @@ h3 {
 .test_boks2,
 .test_boks3 {
   margin-bottom: 50px;
+}
+
+.flasker {
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+  gap: 20px;
+  scroll-padding: 10px;
+  /* Hides scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.flasker::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+.flasker .card {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Hvis af en eller anden årsag, at scrollbar ikke hides, så justeres farven på scrollbar*/
+.flasker {
+  scrollbar-color: var(--guld) transparent;
+}
+
+.flasker img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.flasker_text p {
+  font-size: var(--p-sizeM);
+  margin: 0 15%;
+  margin-top: 20px;
+}
+
+.flasker_button {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+button {
+  border: none;
+  background-color: var(--yellow600);
+  color: var(--beige);
+  border-radius: 5px;
+  width: 150px;
+  padding: 0.5rem;
+  font-family: var(--primary-font);
+  font-size: var(--p-sizem);
+}
+
+button:hover {
+  border: none;
+  background-color: var(--yellow);
+  transition: 0.2s;
+}
+
+button a {
+  color: var(--beige);
+  text-decoration: none;
+}
+
+.contact_container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: var(--beigeD);
+  padding: 2rem;
+  margin: 50px 0;
+}
+
+.contact_text {
+  display: flex;
+  justify-content: center;
+}
+
+.contact_text h4 {
+  color: var(--codGrey);
+  font-family: var(--h2-font);
+  font-size: var(--h2-sizeM);
+  margin: 0;
+}
+
+.contact_button {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 800px) {
@@ -286,5 +379,42 @@ h3 {
     object-fit: cover; /* Ensure the image covers the container */
     width: 100%; /* Make sure the image takes up 100% of the container */
     height: 100%; /* Make sure the image takes up 100% of the container */
+  }
+
+  .grid_flasker {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .flasker_text {
+    margin-left: 45%;
+    margin-top: 10px;
+  }
+  .flasker_text p {
+    font-size: var(--p-sizeD);
+    margin: 0;
+  }
+
+  .contact_container {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--beigeD);
+    padding: 2rem;
+    margin: 50px 0;
+  }
+
+  .contact_text h4 {
+    color: var(--codGrey);
+    font-family: var(--h2-font);
+    font-size: var(--h2-sizeM);
+    margin: 0;
+  }
+  .contact_text {
+    display: initial;
+  }
+  .contact_button {
+    margin: 10px 0;
+    display: initial;
   }
 }
