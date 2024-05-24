@@ -205,12 +205,18 @@ button a {
 .contact_container {
   display: grid;
   grid-template-rows: 1fr 1fr;
+  gap: 20px;
   background-color: var(--beigeD);
   padding: 2rem;
   margin: 50px 0;
 }
 
-.contact_text {
+.contact_h4 {
+  display: flex;
+  justify-content: center;
+}
+
+.contact_p {
   display: flex;
   justify-content: center;
 }
@@ -412,9 +418,19 @@ button a {
   }
   .contact_text {
     display: initial;
+    margin-left: 13%;
   }
   .contact_button {
     margin: 10px 0;
     display: initial;
+    margin-right: 15%;
+  }
+
+  .contact_h4 {
+    justify-content: initial;
+  }
+
+  .contact_p {
+    justify-content: initial;
   }
 }
