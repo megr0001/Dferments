@@ -81,6 +81,7 @@ h2 {
   font-size: var(--h1-sizeM);
   color: var(--beige);
   margin-bottom: 30px;
+  text-transform: uppercase;
 }
 
 .hero-text p {
@@ -204,11 +205,11 @@ h4 {
 }
 
 figure.effect-bubba {
-  background: #443e3c;
+  background: var(--red);
 }
 
 figure.effect-bubba img {
-  opacity: 0.7;
+  opacity: 0.9;
   -webkit-transition: opacity 0.35s;
   transition: opacity 0.35s;
 }
@@ -231,15 +232,15 @@ figure.effect-bubba figcaption::after {
 }
 
 figure.effect-bubba figcaption::before {
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid var(--beige);
+  border-bottom: 1px solid var(--beige);
   -webkit-transform: scale(0, 1);
   transform: scale(0, 1);
 }
 
 figure.effect-bubba figcaption::after {
-  border-right: 1px solid #fff;
-  border-left: 1px solid #fff;
+  border-right: 1px solid var(--beige);
+  border-left: 1px solid var(--beige);
   -webkit-transform: scale(1, 0);
   transform: scale(1, 0);
 }
@@ -280,8 +281,8 @@ figure.effect-bubba:hover p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: var(--h2-font);
-  font-size: 1.7rem;
+  font-family: var(--h1-font);
+  font-size: 2.7rem;
   text-shadow: 2px 2px 0px var(--codGrey);
   word-spacing: -0.15em;
 }
