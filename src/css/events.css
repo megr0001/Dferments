@@ -100,6 +100,26 @@ p {
 
 /* ----- COMPUTER -------- */
 @media (min-width: 800px) {
+  .illustrations {
+    position: relative;
+  }
+
+  .tealeaf_container {
+    position: absolute;
+    width: 22%;
+    aspect-ratio: 294/436;
+    top: -1%;
+    left: 5%;
+    transform: translateY(-380%);
+  }
+
+  .tealeaf_sprite {
+    width: 100%;
+    height: 100%;
+    background-image: url(/public/img/tealeaf.svg);
+    background-size: cover;
+  }
+
   /*  FØRSTE AFSNIT   */
   .event_container1 {
     display: grid;
