@@ -1,14 +1,12 @@
----
-import "../css/main.css";
----
+
 
 <header>
     <div class="menu-icon" onclick="toggleMenu()">
         &#9776;
     </div>
     <div class="logo">
-        <a class="mobile_only" href="/"><img src="/public/svg/logo_d.svg" alt="Dferments' logo"></a>
-        <a class="desktop_only" href="/"><img src="/public/svg/logo_dferments.svg" alt="Dferments' logo"></a>
+        <a class="mobile_logo" href="/"><img src="/public/svg/logo_d.svg" alt="Dferments' logo"></a>
+        <a class="desk_only" href="/"><img src="/public/svg/logo_dferments.svg" alt="Dferments' logo"></a>
     </div>
     <div class="basket-icon">
        <a href="#"><img src="/public/svg/basket.svg" alt="Basket icon"></a> 
@@ -29,17 +27,6 @@ import "../css/main.css";
             <div class="line"></div>
             <div class="line"></div>
         </div>
-
-
-        <div class="logo">
-            <a href="/"><img src="/svg/logo_d.svg" alt="Dferments' logo"></a>
-            <a class="desk_only" href="/"><img src="/svg/logo_dferments.svg" alt="Dferments' logo"></a>
-        </div>
-        <div class="basket"></div>
-
-
-
-
 
 
     </nav>
@@ -78,7 +65,7 @@ p{
     font-family: var(--primary-font);
 }
 
-.desktop_only {
+.desk_only {
     display: none;
 }
 
@@ -157,16 +144,16 @@ header {
 
 @media (min-width: 800px) {
 
-    .desktop_only {
+    .desk_only {
         display: block;
     }
 
-    .desktop_only img {
+    .desk_only img {
         width: 120px;
     }
 
 
-    .mobile_only {
+    .mobile_logo {
         display: none;
     }
 
