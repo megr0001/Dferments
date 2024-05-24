@@ -98,6 +98,38 @@ p {
     border-bottom-left-radius: 400px;
     margin-bottom: 2rem;
   }
+
+  .smag_os {
+    padding: 50px;
+  }
+  .time h2 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-family: var(--h2-font);
+    color: var(--yellow600);
+    text-transform: uppercase;
+    font-style: italic;
+  }
+  .time a {
+    color: var(--yellow600);
+  }
+
+  .time p {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-family: var(--h2-font);
+  }
+
+  .time img {
+    margin-top: 8px;
+    margin-bottom: 48px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-radius: 10px;
+  }
 }
 
 /* ----- COMPUTER -------- */
@@ -196,9 +228,8 @@ p {
   }
 
   .smag_os {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 38px;
     padding: 50px;
     align-items: stretch;
@@ -206,7 +237,7 @@ p {
 
   .time h2 {
     margin: 0 0 8px 0;
-    font-size: 20px;
+    font-size: 18px;
     font-family: var(--h2-font);
     color: var(--yellow600);
     text-transform: uppercase;
@@ -218,14 +249,15 @@ p {
 
   .time p {
     margin: 0 0 10px 0;
-    font-size: 18px;
+    font-size: 15px;
     font-family: var(--h2-font);
   }
 
   .time img {
     margin-top: 8px;
     margin-bottom: 48px;
-    height: auto;
+    margin: auto;
+    height: 500px;
     display: block;
     margin-left: auto;
     margin-right: auto;
