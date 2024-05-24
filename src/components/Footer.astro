@@ -3,21 +3,9 @@ import "../css/main.css";
 ---
 
 <footer>
-    <section class="subscribe">
-        <p>DFerments: Secrets Unveiled - <br> Subscribe Now!</p>
 
 
-        <form class="email-form" action="/subscribe" method="post">
-
-            <input type="email" id="email" name="email" placeholder="Email" required>
-            <button type="submit">SUBSCRIBE</button>
-        </form>
-
-
-
-    </section>
-
-
+    
     <section class="menu">
         <div class="wrapper">
             <li><a href="/">DFERMENTS</a></li>
@@ -38,6 +26,12 @@ import "../css/main.css";
     </section>
 
 
+
+   
+
+
+
+
     <section class="icons">
 
         <div class="fb">
@@ -46,8 +40,18 @@ import "../css/main.css";
         <div class="ig"><a href="https://www.instagram.com/dferments/"><img src="/svg/ig.svg"
                     alt="Instagram icon"></a></div>
         <div class="smiley"><a href="https://www.findsmiley.dk/1241422"><img src="/svg/smiley.svg" alt="Smiley icon"></a></div>
+    </section>
 
 
+    <section class="subscribe">
+        <p>DFerments: Secrets Unveiled - <br> Subscribe Now!</p>
+
+
+        <form class="email-form" action="/subscribe" method="post">
+
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <button type="submit">SUBSCRIBE</button>
+        </form>
 
     </section>
 
@@ -55,12 +59,7 @@ import "../css/main.css";
 
 
 <style>
-/*desktop*/
-
-.wrapper li a{
-    font-family: var(--h2-font);
-  
-}
+/*mobile*/
 
 p{
     font-family: var(--primary-font);
@@ -68,14 +67,55 @@ p{
 
 footer {
     border-top: 1px solid;
-    
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     padding: 3rem;
     position: sticky;
     background-color: var(--beige);
 }
+footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+
+ 
+    .icons div {
+        padding-left: 1rem;
+        padding-right: 3.5rem;
+        padding-bottom: 2rem;
+
+    }
+
+    .icons img {
+        width: 25px;
+    }
+
+   
+
+
+    .smiley {
+        padding-right: 0;
+    }
+
+
+
+    .email-form button {
+
+        margin-left: 55px;
+        margin-right: 55px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .wrapper li a{
+    font-family: var(--h1-font);
+  
+}
+
+
+
+
 
 .subscribe {
     display: flex;
@@ -125,16 +165,27 @@ background-color: var(--beige);
     font-family: var(--h2);
 }
 
-
+.menu a {
+    color: var(--codGrey);
+    text-decoration: none;
+    font-family: var(--h1);
+}
 
 .email-form button:hover {
 
-    background-color:#EC8C14;
-   
+background-color:#EC8C14;
+
 }
 
-.menu {
-    text-align: center;
+.icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.icons div {
+    padding-right: 1rem;
+    padding-top: 3rem;
+    padding-left: 2.5rem;
 }
 
 .menu li {
@@ -142,21 +193,33 @@ background-color: var(--beige);
     padding-bottom: 15px;
 }
 
+/* desktop*/
 
-.menu a {
-    color: var(--codGrey);
-    text-decoration: none;
-    font-family: var(--h1);
+
+@media (min-width: 800px) {
+
+    .icons{
+    order: 2;
+}
+
+.subscribe{
+    orphans: 0;
+}
+    .menu {
+    text-align: center;
 }
 
 .menu a:hover{
     color: #858585;
 }
 
-.icons {
+footer{
     display: flex;
     flex-direction: row;
 }
+
+
+
 
 
 .icons img {
@@ -167,62 +230,7 @@ background-color: var(--beige);
     opacity: 60%;
 }
 
-.icons div {
-    padding-right: 2rem;
-    padding-top: 3rem;
-}
-
-/* mobil*/
 
 
-@media (max-width: 800px) {
-
-    footer {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-
-
-    .subscribe {
-        order: 2;
-    }
-
-    .icons {
-        order: 1;
-
-    }
-
-    .icons div {
-        padding-left: 1rem;
-        padding-right: 3.5rem;
-
-        padding-bottom: 2rem;
-
-    }
-
-    .icons img {
-        width: 25px;
-    }
-
-    .menu {
-        order: 0;
-    }
-
-
-    .smiley {
-        padding-right: 0;
-    }
-
-
-
-    .email-form button {
-
-        margin-left: 55px;
-        margin-right: 55px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
 }
 </style>
