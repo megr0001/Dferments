@@ -58,7 +58,23 @@ const { myData } = Astro.props;
             </div>
             <!--Copyright (c) 2024 by Mystro Ken (https://codepen.io/mystroken/pen/Moraab)-->
           </div>
-          <button class="add_to_cart">TILFØJ TIL KURV</button>
+          <button class="add_to_cart">ADD TO CART</button>
+          <p>{myData['beskrivelse']}</p>
+            <div class="labels">
+              <button class="ingredienser">NATURAL INGREDIENS</button>
+              <button class="farver">NO SYNTHETIC COLORING</button>
+            </div>
+            <div class="recommend">
+                <h2>Se også andre produkter</h2>
+                <ul class="productlist">
+                  <article class="time">
+                  <a href={`/products/${myData['slug']}`}>
+                    <h2>{myData['product_name']}</h2>
+                  </a>
+                  <p>{myData['beskrivelse']}</p>
+                </article>
+                </ul>
+            </div>
      </div>
 </MainLayout>
 
@@ -69,6 +85,7 @@ const { myData } = Astro.props;
         font-family: var(--h1-font);
         text-align: center;
         margin: 48px 0 40px 0;
+        padding: 0 1rem;
         font-size: var(--h1-sizeM)
     }
 .carousel_container {
@@ -244,6 +261,26 @@ color: var(--codGrey);
   font-size:1.5rem;
   font-family: var(--h2-font);
   background-color: var(--yellow600);
+  border:none;
+}
+/* labels styles */
+.labels {
+  display: flex;
+  gap: 11px;
+  margin-inline: 1rem;
+
+}
+.ingredienser, .farver {
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 2rem auto;
+  display: block;
+  color: var(--beige);
+  font-size: 16px;
+  font-family: var(--h2-font);
+  background-color: var(--red);
   border:none;
 }
 </style>
