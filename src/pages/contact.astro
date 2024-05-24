@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import "../css/main.css";
 ---
 
 <MainLayout title="Contact & Collabs">
@@ -10,7 +11,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 <div class="grid_1_2">
     <section class="contact_us">
 
-        <form id="form_1">
+        <form id="form_1" data-netlify="true">
             <p>Name</p>
             <input type="text" id="input1" placeholder="Write your full name">
             <p>Email</p>
@@ -42,7 +43,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
         <p class="email_p">Email</p>
 
-        <form id="form_2"><input type="text" id="input5" placeholder="Write your email address">
+        <form id="form_2"><input type="text" id="input5" placeholder="Write your email address" data-netlify="true">
             <button type="button" onclick="submitForm()">SUBMIT →</button>
         </form>
     </section>
@@ -166,10 +167,16 @@ import MainLayout from "../layouts/MainLayout.astro";
         padding:0
     }
 
+
+
     * {
         margin: 0;
         padding: 0;
     }
+
+    p{
+    font-family: var(--primary-font);
+}
 
     section {
         margin-left: 2rem;
