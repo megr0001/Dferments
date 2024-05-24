@@ -104,6 +104,8 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
         </ul>
       </section>
     </div>
+
+    <div class="arrow bounce"></div>
 </MainLayout>
 
 <style>
@@ -164,6 +166,26 @@ img {
   margin: 2rem; /* Tilføj lidt plads mellem hver time */
 }
 
+.time a {
+  text-decoration: none;
+  color: inherit;
+}
+/* visited link */
+.time a:visited {
+  color:none;
+}
+
+/* mouse over link */
+.time a:hover {
+  color: var(--yellow600);
+  text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+  color: none;
+}
+
 .time h2 {
   margin: 0 0 8px 0;
   font-size: 24px;
@@ -217,14 +239,44 @@ article.time:nth-of-type(2n) {
   }
 }
 
+  /* arrow bounce styles */
+.arrow.active {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -20px;
+  width: 60px;
+  height: 60px;
+  background-image: url(/img/products/arrowdown.svg);
+  background-size: contain;
+  z-index: 10;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
 @media (min-width: 800px) {
 h1 {
-        margin: 6rem 0 4rem 0;
+        margin: 4rem 0 2rem 0;
         font-size: 3.75rem;
     }
     .products_container {
     flex-direction: row;
     align-items: flex-start;
+    margin-inline: 2rem;
   }
   .productlist.active {
     background-position: left top, center center, right bottom;
