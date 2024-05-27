@@ -42,13 +42,13 @@ h1 {
 #text {
   display: flex;
   justify-content: center;
-  text-shadow: calc(var(--x) * -1) calc(var(--y) * -1) 0px #e7861b, calc(var(--x) * -2) calc(var(--y) * -2) 0px #d2430d, calc(var(--x) * -3) calc(var(--y) * -3) 0px #bd0200;
+  text-shadow: calc(var(--x) * -1) calc(var(--y) * -1) 0px #e7861b,
+    calc(var(--x) * -2) calc(var(--y) * -2) 0px #d2430d,
+    calc(var(--x) * -3) calc(var(--y) * -3) 0px #bd0200;
 }
 
 h2 {
   text-align: center;
-  display: flex;
-  justify-content: center;
   font-family: var(--h2-font);
   font-size: 8vw;
   color: var(--red950);
@@ -308,8 +308,6 @@ figure.effect-bubba:hover p {
 
   h2 {
     text-align: center;
-    display: flex;
-    justify-content: left;
     font-size: 2.4vw;
   }
 
