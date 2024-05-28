@@ -13,12 +13,8 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
 ---
 
 <MainLayout title="DRINK ME">
-    <h1>Products</h1>
-    <!-- <article class="container">
-     
-    </article> -->
-
-      <div class="products_container">
+  <h1>Products</h1>
+    <div class="time_container">
       <section class="products past_products">
         <div>
           <Tiden
@@ -26,15 +22,20 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
           p="How did it start?"
           billede="/img/products/past.webp" alt="Billede af diverse kombucha smag."
           buttontxt="PAST"/>
-      </div>
+        </div>
         <ul class="productlist">
           {data
+          // Javascript-udtryk: JSX åbner et array med produktdata hentet fx fra Supabase.
           .sort((a, b) => a.id - b.id)
+          // sorterer data array i alfabetisk rækkefølge.
           .map((product) => {
+            // Itererer over hvert element (produkt) i den sorterede data array. 
             if (product.category === 'past') {
+              // Kontrollerer om produktets kategori er past. Kun produkter med denne kategori vil blive vist.
               return (
                 <article class="time">
                   <a href={`/products/${product.slug}`}>
+                    {/* Opretter et link (<a>-tag) til produktets detaljerede side. href-attributten dynamisk genereres ved hjælp af produktets slug.*/}
                     <h2>{product.product_name}</h2>
                   </a>
                   <p>{product.beskrivelse}</p>
@@ -46,15 +47,14 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
           })}
         </ul>
       </section>
-
       <section class="products present_products">
-          <div>
-        <Tiden
+        <div>
+          <Tiden
           h2="The present"
           p="What's in the moment?"
           billede="/img/products/present.webp" alt="Billede af diverse kombucha smag."
           buttontxt="PRESENT"/>
-      </div>
+        </div>
         <ul class="productlist">
           {data
           .sort((a, b) => a.id - b.id)
@@ -75,15 +75,14 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
           })}
         </ul>
       </section>
-
       <section class="products future_products">
-         <div>
-        <Tiden
-        h2="The future"
-        p="What comes next?"
-        billede="/img/products/future.webp" alt="Billede af diverse kombucha smag."
-        buttontxt="FUTURE"/>   
-      </div>
+        <div>
+          <Tiden
+          h2="The future"
+          p="What comes next?"
+          billede="/img/products/future.webp" alt="Billede af diverse kombucha smag."
+          buttontxt="FUTURE"/>   
+        </div>
         <ul class="productlist">
           {data
           .sort((a, b) => a.id - b.id)
@@ -104,95 +103,64 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
         </ul>
       </section>
     </div>
-
     <div class="arrow bounce"></div>
 </MainLayout>
 
 <style>
-  /* foreløbig */
-img {
-  width: 100%;
-  height: auto;
-  display: block;
+h1 {
+  margin: 2.5rem 0 3.5rem;
+  text-align: center;
+  font-family: var(--h1-font);
+  font-size: var(--h1-sizeM);
+  text-transform: uppercase;
+  color: var(--red);
 }
-
-   h1 {
-        text-transform: uppercase;
-        color: var(--red);
-        font-family: var(--h1-font);
-        text-align: center;
-        margin: 48px 0 40px 0;
-        font-size: 40px;
-    }
-  .container {
-        /* position: relative; */
-        /* display: flex;
-        flex-direction: column;
-        align-items: center; */
-        /* align-items: center;
-        gap: 1.5rem;
-         margin-bottom: 48px; */
-    }
-
-    .products_container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 34px;
-    }
+.time_container {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
 .productlist {
   display: none;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  /* sørger for at listen ikke er der, før den aktiveres */
 }
-
-
 .productlist.active {
   display: block;
-  padding: 0;
-  margin: 32px auto;
-  max-width: 65ch;
+  margin: 2.5rem auto;
   /* baggrunden */
   background-image: url(/img/products/tealeaf.svg), url(/img/products/flowerleft.svg), url(/img/products/flowerright.svg);
   background-repeat: no-repeat;
-  background-position: left top, center center, bottom center;
-  background-size: 50%, 100%, 80%;
+  background-position: left top, center center, bottom right;
+  background-size: 40%, 100%, 80%;
 }
-
 .time {
-  /* margin: 48px 1rem; */
-  border-bottom: 1px solid var(--yellow600);
-  margin: 2rem; /* Tilføj lidt plads mellem hver time */
+  margin: 3.5rem 2rem;
+  border-bottom: 2px solid var(--red950);
 }
-
 .time a {
   text-decoration: none;
   color: inherit;
 }
-/* visited link */
-.time a:visited {
-  color:none;
+.time a:visited { /* visited link */
+  color: inherit;
 }
-
-/* mouse over link */
-.time a:hover {
-  color: var(--yellow600);
+.time a:hover { /* hover link */
   text-decoration: underline;
+  color: var(--yellow);
 }
-
-/* selected link */
-a:active {
-  color: none;
-}
-
 .time h2 {
-  margin: 0 0 8px 0;
-  font-size: 24px;
+  margin: 0 0 1rem 0;
   font-family: var(--h2-font);
+  font-size: var(--h2-sizeM);
   text-transform: uppercase;
   font-style: italic;
 }
+
+
+
+
 
 .time p {
   margin: 0 0 10px 0;
@@ -273,7 +241,7 @@ h1 {
         margin: 4rem 0 2rem 0;
         font-size: 3.75rem;
     }
-    .products_container {
+    .time_container {
     flex-direction: row;
     align-items: flex-start;
     margin-inline: 2rem;
