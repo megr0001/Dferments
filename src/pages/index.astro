@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import "../css/index.css"
-import "../css/main.css"
+import "../css/index.css";
+import "../css/main.css";
 ---
 
 <html lang="en">
@@ -15,16 +15,99 @@ import "../css/main.css"
   <header></header>
   <body>
     <MainLayout title="HOME">
-    <div id="about">
+      <div id="about">
         <div id="about_background"></div>
         <div id="about_elements">
-            <div id="text">
-                <h1>be curious</h1>
-            </div>
+          <div id="text">
+            <h1>be curious</h1>
+          </div>
         </div>
-    </div>
+        <div id="about_elements2">
+          <div id="citat">
+            <h2>THE <span>finest</span><br />FERMENTATION<br />PRODUCTS</h2>
+          </div>
+        </div>
+        <div id="about_elements3">
+          <div id="about_container" class="gone">
+            <div id="about_sprite"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-text">
+          <h3>welcome</h3>
+          <hr />
+          <p>
+            Welcome to D Ferments. I'm Damian and I'm the founder of this local
+            kombucha and fermentation brewery. Here craftsmanship meets in every
+            bottle. Explore our unique kombucha creations, handcrafted with love
+            and carefully selected ingredients. Join me on an enchanting journey
+            through the world of fermentation.
+          </p>
+          <button><a href="/about">ABOUT D →</a></button>
+        </div>
+      </div>
+      <div class="service_header">
+        <h4>services</h4>
+      </div>
+      <div class="grid">
+        <figure class="effect-bubba">
+          <img src="/img/index_link1.png" alt="Link to buy drinks" />
+          <figcaption>
+            <div class="centered">DRINK ME</div>
+            <a href="/kombucha">View more</a>
+          </figcaption>
+        </figure>
+        <figure class="effect-bubba">
+          <img src="/img/index_link2.jpg" alt="Link to read about events" />
+          <figcaption>
+            <div class="centered">EVENTS</div>
+            <a href="/events">View more</a>
+          </figcaption>
+        </figure>
+      </div>
     </MainLayout>
+
+    <script>
+      import { gsap } from "gsap";
+
+      import { TextPlugin } from "gsap/TextPlugin";
+
+      gsap.registerPlugin(TextPlugin);
+      const text = document.getElementById("text");
+      const range = 16;
+
+      function updateShadow(event) {
+        const x =
+          Math.round((event.pageX * range) / window.innerWidth) - range / 2;
+        const y =
+          Math.round((event.pageY * range) / window.innerHeight) - range / 2;
+        gsap.to(text, {
+          duration: 0.1,
+          "--x": x,
+          "--y": y,
+        });
+      }
+
+      document.body.addEventListener("mousemove", updateShadow);
+    </script>
   </body>
-  <footer></footer>
+  <style>
+    #about_elements2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+    }
+    #citat {
+      min-width: 200px;
+      max-width: 300px;
+    }
+
+    span {
+      color: var(--yellow);
+      font-style: italic;
+    }
+  </style>
+
 
 </html>
