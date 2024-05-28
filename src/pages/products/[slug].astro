@@ -30,7 +30,8 @@ const { myData } = Astro.props;
 <MainLayout title={myData['product_name']}>
     <h1>{myData['product_name']}</h1>
 
-    <div class="carousel_container">
+    <div class="main_container">
+      <div class="carousel_container">
         <div class="carousel">
             <div class="item active">
                 <img src={myData['img']} alt={myData['product_name']}>
@@ -64,14 +65,48 @@ const { myData } = Astro.props;
             <div class="labels">
               <button class="ingredienser">NATURAL INGREDIENS</button>
               <button class="farver">NO SYNTHETIC COLORING</button>
-            </div>
+      </div>
+      </div>
+    </div>
+
+            <h2>Testimonials</h2>
+ <div class="grid_test">
+   <div class="test_boks">
+      <div class="image_container">
+      <img src="/img/products/thomas.webp" alt="Avatar">
+      </div>
+      <h3>Thomas</h3>
+      <p>"Refreshing blend with a tangy kick, perfect for a dinner boost"</p>
+   </div>
+   <div class="test_boks">
+      <div class="image_container">
+      <img src="/img/products/mark.webp" alt="Avatar">
+      </div>
+      <h3>Mark</h3>
+      <p>"The kombucha is carefully crafted with a nuanced profile of fruity undertones"</p>
+   </div>
+   <div class="test_boks">
+      <div class="image_container">
+      <img src="/img/products/isabella.webp" alt="Avatar">
+      </div>
+      <h3>Isabella</h3>
+      <p>"Delicate floral notes with a zestful finish, a true taste experience"</p>
+   </div>
+   <div class="test_boks">
+      <div class="image_container">
+      <img src="/img/products/vira.webp" alt="Avatar">
+      </div>
+      <h3>Vira</h3>
+      <p>"Refreshing kombucha with bubbles and a complex balance of tartness and sweetness"</p>
+   </div>
+ </div>
+
             <div class="recommend">
                 <h2>TASTE US TOO!</h2>
                   <div class="fireitems">
                   <Recommended/>
                 </div>
             </div>
-     </div>
 </MainLayout>
 
 <style>
@@ -170,6 +205,15 @@ const { myData } = Astro.props;
     }
   }
 }
+
+.info {
+  /* baggrunden */
+  background-image: url(/img/products/flowerleft.svg);
+  background-repeat: no-repeat;
+  background-position:center right;
+  background-size: 130%;
+}
+
 /*  info styles h3, h2 & p */
 .info h3, h2, p {
 font-family: var(--h2-font);
@@ -260,6 +304,28 @@ color: var(--codGrey);
   margin: 0 1rem;
   width: 93%;
 }
+
+/* testimniols */
+.grid_test {
+  display: flex;
+  flex-direction:column;
+}
+.grid_test img {
+  border-radius: 100%;
+  height: 25%;
+  width: 25%;
+  margin: 0 38.5%;
+}
+
+.test_boks p {
+  margin: 0 15%;
+  font-size: var(--p-sizeM);
+}
+
+.test_boks {
+  margin-bottom: 50px;
+}
+
 /* labels styles */
 .labels {
   display: flex;
@@ -279,6 +345,232 @@ color: var(--codGrey);
   font-family: var(--h2-font);
   background-color: var(--red);
   border:none;
+}
+/***** MEDIA QUERIES FOR DESKTOP *****/
+@media (min-width: 800px) {
+  h1 {
+        margin: 6rem 0 2.5rem 0;
+        font-size: var(--h1-sizeD)
+    }
+
+    .main_container {
+      display: flex;
+    }
+.carousel_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2rem;
+  gap: 2rem;
+  width: 50%;
+  .carousel {
+     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 530px; /* Set height to contain the images */
+    overflow: hidden;
+    margin-bottom: 5rem;
+    .item {
+      opacity: 0;
+      width: 392px;
+      height: 530px;
+      overflow: hidden;
+      display: none;
+      transition: opacity 0.5s ease-in-out;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10px;
+        margin-bottom: 58px;
+      }
+
+      &.active {
+        opacity: 1;
+        display: flex;
+        transform: translateY(0); /* Ensure it is in view */
+      }
+    }
+  }
+}
+  .btn {
+    display: none;
+  }
+  .dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-top:31rem;
+    gap: 16px;
+
+    .dot {
+      cursor: pointer;
+      height: 14px;
+      width: 14px;
+      border-radius: 10px;
+      background-color:rgba(209, 104, 14, 0.3);
+      transition: background-color 0.2s ease;
+
+      &.active,
+      &:hover {
+        background-color: var(--codGrey);
+      }
+    }
+  }
+/*  info styles h3, h2 & p */
+.info h3, h2, p {
+font-family: var(--h2-font);
+font-size: 1.5rem;
+color: var(--red);
+margin-bottom: 1.5rem;
+margin-left: 1rem;
+}
+
+.info h2, p {
+margin-bottom: 1rem;
+}
+
+.info p {
+color: var(--codGrey);
+}
+/* Quantity styles */
+.quantity-input {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin: 0 0 1rem 1rem;
+}
+
+.quantity-input:focus {
+  background: var(--red);
+}
+
+.quantity-input__modifier,
+.quantity-input__screen {
+  user-select: none;
+  outline: none;
+}
+
+.quantity-input__modifier {
+  padding: 1rem;
+  width: 4rem;
+  font-size: 1.125rem;
+  font-family: var(--h2-font);
+  background: var(--white);
+  border-top: 1px solid var(--codGrey);
+  border-bottom: 1px solid var(--codGrey);
+  border-inline: none;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+.quantity-input__modifier:hover {
+  background: var(--yellow600);
+}
+
+.quantity-input__modifier--left {
+  border-radius: 10px 0 0 10px;
+  border-left: 1px solid var(--codGrey);
+}
+
+.quantity-input__modifier--right {
+  border-radius: 0 10px 10px 0;
+  border-right: 1px solid var(--codGrey);
+}
+
+.quantity-input__modifier--left img, .quantity-input__modifier--right img {
+  width: 120%;
+  height: auto
+}
+.quantity-input__screen {
+  width: 4rem;
+  padding: 1.31rem 0;
+  font-size: 1.5rem;
+  border-top: 1px solid var(--codGrey);
+  border-bottom: 1px solid var(--codGrey);
+  border-inline: none;
+  text-align: center;
+}
+
+/* add_to_cart styles */
+.add_to_cart {
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 2rem;
+  height: auto;
+  color: var(--beige);
+  font-size: var(--p-sizeD);
+  font-family: var(--primary-font);
+  background-color: var(--yellow600);
+  border:none;
+  margin: 0 1rem;
+  width: 93%;
+}
+
+/* testimonials */
+.grid_test {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15%;
+    gap: 100px;
+  }
+
+  .grid_test img {
+    border-radius: 50%;
+    height: 25%;
+    width: 30%;
+    margin: 0 35%;
+  }
+
+.test_boks p {
+    margin: 0 0;
+    font-size: var(--p-sizeD);
+  }
+
+  .test_boks {
+    margin-bottom: 50px;
+  }
+
+ .image-container {
+    width: 200px; /* Set the desired width for the cropped area */
+    height: 200px; /* Set the desired height for the cropped area */
+    overflow: hidden; /* Hide any content outside the container */
+    border-radius: 100%;
+  }
+
+  .image-container img {
+    object-fit: cover; /* Ensure the image covers the container */
+    width: 100%; /* Make sure the image takes up 100% of the container */
+    height: 100%; /* Make sure the image takes up 100% of the container */
+  }
+
+
+/* labels styles */
+.labels {
+  display: flex;
+  gap: 11px;
+  margin-inline: 1rem;
+
+}
+.ingredienser, .farver {
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 2rem auto;
+  display: block;
+  color: var(--beige);
+  font-size: 16px;
+  font-family: var(--h2-font);
+  background-color: var(--red);
+  border:none;
+}
 }
 </style>
 
