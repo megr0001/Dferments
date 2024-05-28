@@ -1,0 +1,80 @@
+---
+const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferments",
+{
+    method: "GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6ZmpibGV4aHdvaWpnYmdtaXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNDIxMTQsImV4cCI6MjAyNTkxODExNH0.O7nP4UolRZVDGhGQ3-0RoYhP0SEzLOyHHhp125SwNvw"
+    },
+}
+).then((res) => res.json());
+---
+<ul class="productlist">
+  {data
+    .filter(product => product.category === 'present')
+    .sort(() => 0.5 - Math.random()) // Randomize order
+    .slice(0, 4) // Limit to 4 items
+    .map((product, index) => (
+      <article class="time">
+        <a href={`/products/${product.slug}`}>
+          <div class="image_container">
+          <img src={product.img} alt={product.beskrivelse} />
+          </div>
+          <h2>{product.product_name}</h2>
+        </a>
+      </article>
+    ))
+  }
+</ul>
+
+
+<style>
+  .productlist {
+  display: flex;
+  flex-wrap:wrap;
+  margin: 0 0 48px 0;
+  max-width: 65ch;
+  /* baggrunden */
+  background-image: url(/img/products/flowerright.svg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 114%;
+}
+
+.time {
+  flex-basis: calc(50% - 2rem); /* Beregn bredden på hver time */
+  margin: 0 16px 32px 16px;
+    border-bottom: 1px solid var(--red950);
+}
+
+.time a {
+  text-decoration: none;
+  color: inherit;
+  font-size: var(--p-sizeM);
+  font-family: var(--primary-font);
+}
+
+/* mouse over link */
+.time a:hover {
+  color: var(--yellow);
+  text-decoration: underline;
+}
+
+.time h2 {
+  margin: 16px 0 16px 0;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.image_container {
+  width: auto; /* Set the desired width for the cropped area */
+  height: 277px; /* Set the desired height for the cropped area */
+  overflow: hidden; /* Hide any content outside the container */
+}
+
+.time img {
+    object-fit: cover; /* Ensure the image covers the container */
+    width: 100%; /* Make sure the image takes up 100% of the container */
+    height: 100%; /* Make sure the image takes up 100% of the container */
+    border-radius: 10px;
+}
+</style>
