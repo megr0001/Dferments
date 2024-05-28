@@ -1,4 +1,5 @@
 ---
+import Recommended from "../../components/products/Recommended.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 export async function getStaticPaths() {
   const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferments",
@@ -52,9 +53,9 @@ const { myData } = Astro.props;
         <p>{myData['price']}</p>
           <div>
             <div class="quantity-input">
-              <button class="quantity-input__modifier quantity-input__modifier--left"><img src="/img/products/minus.svg" alt="minus"></button>
+              <button class="quantity-input__modifier quantity-input__modifier--left"><img src="/img/products/minus.svg" alt="minus" loading="lazy"></button>
               <input class="quantity-input__screen" type="text" value="6" readonly>
-              <button class="quantity-input__modifier quantity-input__modifier--right"><img src="/img/products/plus.svg" alt="plus"></button>
+              <button class="quantity-input__modifier quantity-input__modifier--right"><img src="/img/products/plus.svg" alt="plus" loading="lazy"></button>
             </div>
             <!--Copyright (c) 2024 by Mystro Ken (https://codepen.io/mystroken/pen/Moraab)-->
           </div>
@@ -65,15 +66,10 @@ const { myData } = Astro.props;
               <button class="farver">NO SYNTHETIC COLORING</button>
             </div>
             <div class="recommend">
-                <h2>Se også andre produkter</h2>
-                <ul class="productlist">
-                  <article class="time">
-                  <a href={`/products/${myData['slug']}`}>
-                    <h2>{myData['product_name']}</h2>
-                  </a>
-                  <p>{myData['beskrivelse']}</p>
-                </article>
-                </ul>
+                <h2>TASTE US TOO!</h2>
+                  <div class="fireitems">
+                  <Recommended/>
+                </div>
             </div>
      </div>
 </MainLayout>
@@ -249,19 +245,20 @@ color: var(--codGrey);
   border-inline: none;
   text-align: center;
 }
+
 /* add_to_cart styles */
 .add_to_cart {
   border-radius: 10px;
-  padding: 26px 36px;
-  width: 93%;
+  padding: 15px 20px;
+  margin-bottom: 2rem;
   height: auto;
-  margin: 0 auto 2rem auto;
-  display: block;
   color: var(--beige);
-  font-size:1.5rem;
-  font-family: var(--h2-font);
+  font-size: var(--p-sizeD);
+  font-family: var(--primary-font);
   background-color: var(--yellow600);
   border:none;
+  margin: 0 1rem;
+  width: 93%;
 }
 /* labels styles */
 .labels {
