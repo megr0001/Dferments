@@ -66,7 +66,9 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
                   <h2>{product.product_name}</h2>
                   </a>
                   <p>{product.beskrivelse}</p>
+                  <div class="image_container">
                   <img src={product.img} alt={product.beskrivelse} />
+                  </div>
                 </article>
               );
             } else {
@@ -130,9 +132,11 @@ h1 {
   display: block;
   margin: 2.5rem auto;
   /* baggrunden */
-  background-image: url(/img/products/tealeaf.svg), url(/img/products/flowerleft.svg), url(/img/products/flowerright.svg);
+  background:
+    url(/img/products/tealeaf.svg) left top,
+    url(/img/products/flowerleft.svg) center center,
+    url(/img/products/flowerright.svg) bottom right;
   background-repeat: no-repeat;
-  background-position: left top, center center, bottom right;
   background-size: 40%, 100%, 80%;
 }
 .time {
@@ -151,79 +155,57 @@ h1 {
   color: var(--yellow);
 }
 .time h2 {
-  margin: 0 0 1rem 0;
+  margin-bottom: 1rem;
   font-family: var(--h2-font);
   font-size: var(--h2-sizeM);
   text-transform: uppercase;
   font-style: italic;
 }
-
-
-
-
-
 .time p {
-  margin: 0 0 10px 0;
+  margin-bottom: 1.5rem;
+  font-family: var(--primary-font);
   font-size: 18px;
-  font-family: var(--h2-font);
 }
-
 .time img {
-  margin-top: 8px;
-  margin-bottom: 48px;
-  height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
+  height: auto;
+  margin: 2.5rem 0 1.5rem;
   border-radius: 10px;
 }
-
-article.time {
-    margin-bottom: 1rem;
-}
-
-/* Juster tekstjusteringen til højre for hver anden .time artikel */
 article.time:nth-of-type(2n) {
-  text-align: right;
+  text-align: right; /* Juster tekstjusteringen til højre for hver anden .time article */
   color: var(--red);
 }
-
+/* Animation for productlist.active */
 .animated.moveUp {
-   opacity: 0;
-    transform: translateY(40px);
-    animation-name: moveUp;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+  animation: moveUp 1s forwards;
 }
 @keyframes moveUp {
   0% {
-     opacity: 0;
+    opacity: 0;
     transform: translateY(40px);
   }
   100% {
-     opacity: 1;
+    opacity: 1;
     transform: translateY(0);
   }
 }
-
-  /* arrow bounce styles */
+/* Arrow bounce styles */
 .arrow.active {
   position: fixed;
+  margin-left: -35px;
   bottom: 30px;
   left: 50%;
-  margin-left: -20px;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   background-image: url(/img/products/arrowdown.svg);
   background-size: contain;
   z-index: 10;
 }
-
 .bounce {
   animation: bounce 2s infinite;
 }
-
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
@@ -235,110 +217,106 @@ article.time:nth-of-type(2n) {
     transform: translateY(-15px);
   }
 }
-
+/* Desktop Styles */
 @media (min-width: 800px) {
-h1 {
-        margin: 4rem 0 2rem 0;
-        font-size: 3.75rem;
-    }
-    .time_container {
+  h1 {
+    margin: 6rem 0 4rem;
+    font-size: var(--h1-sizeD);
+  }
+  .time_container {
+    margin-bottom: 6rem;
+    margin-inline: 4rem;
     flex-direction: row;
     align-items: flex-start;
-    margin-inline: 2rem;
+    gap: 1rem;
   }
   .productlist.active {
+    margin: 4rem 0;
+    padding: 2rem;
     background-position: left top, center center, right bottom;
-  background-size: 30%, 90%, 60%;
-  margin-top: 4rem;
-  padding: 2rem 2rem;
+    background-size: 30%, 90%, 60%;
   }
-.past_products .productlist.active {
-left: 156%;
-right: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
-	max-width: 100vw;
-	position: relative;
-	width: 99vw;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: stretch;
-}
-
-.present_products .productlist.active {
-left: 51%;
-right: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
-	max-width: 100vw;
-	position: relative;
-	width: 99vw;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: stretch;
-}
-
-.future_products .productlist.active {
-left: -55%;
-right: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
-	max-width: 100vw;
-	position: relative;
-	width: 99vw;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: stretch;
-}
-.products {
-margin-bottom: 6rem;
-  flex: 1;
-}
-.time {
-  margin: 4rem 0 1rem 0;
-  flex-basis: calc(33.33% - 4rem); /* Beregn bredden på hver time */
-}
-.time h2 {
-  margin: 0 0 1rem 0;
-}
-.time p {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.time img {
-  margin-top: 2rem;
-  height: auto;
-  width: 70%;
-}
-article.time:nth-of-type(2n) {
-  text-align: left;
-}
+  .past_products .productlist.active,
+  .present_products .productlist.active,
+  .future_products .productlist.active {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    right: 50%;
+    max-width: 100vw;
+    width: 99vw;
+    height: auto;
+  }
+  .past_products .productlist.active {
+    left: 155%;
+  }
+  .present_products .productlist.active {
+    left: 51%;
+  }
+  .present_products .time {
+     height: 840px; /* mellemrum mellem img og borderbottom */
+  }
+   .future_products .productlist.active {
+    left: -55%;
+  }
+  .products {
+    margin-bottom: 0;
+    flex: 1;
+  }
+  .time {
+    margin: 2rem 0 4rem;
+    flex-basis: calc(33.33% - 3rem); /* Beregn bredden på hver .time */
+  }
+  .time h2 {
+    margin-bottom: 2rem;
+    font-size: var(--h2-sizeD);
+  }
+  .time p {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+  /* ramme til billederne så de er ens i height og width */
+  .image_container {
+    width: 100%;
+    height: 500px; 
+    overflow: hidden; 
+    border-radius: 10px;
+  }
+  .time img {
+    margin: 0;
+    object-fit:cover;
+    width: 100%;
+    height: 100%;
+  }
+  article.time:nth-of-type(2n) {
+    text-align: left;
+  }
 }
 </style>
 
 <script>
-// animation moveup
-document.addEventListener("DOMContentLoaded", function() {
+// animation moveUp
+document.addEventListener("DOMContentLoaded",  () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+          // Tjekker om elementet er synligt i vinduet
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated', 'moveUp');
-                observer.unobserve(entry.target);  // Stop observing once animated
+                 // Stopper observationen af elementet, når animationen er udløst
+                observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1  // Trigger when 10% of the element is visible
+       // Trigger svg pil når 10% af ".productlist" er synlig
+        threshold: 0.1
     });
 
-    const items = document.querySelectorAll('.productlist');
-    items.forEach(item => {
+    document.querySelectorAll('.productlist').forEach(item => {
         observer.observe(item);
     });
 });
