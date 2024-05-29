@@ -3,24 +3,24 @@ const {h2, p, billede, buttontxt, alt} = Astro.props;
 const { data } = Astro.props;
 ---
 <div class="tiden">
-  <div class="image_container2 startposition" id="imageFull">
+  <div class="image_container2 startposition">
     <img src={billede} alt={alt}>
       <div class="overlay">
         <div class="standard">
 		      <h2>{h2}</h2>
 		      <p>{p}</p>
-         <button class="button buttonClicked" id="imageFull">{buttontxt}</button>
+          <button class="button buttonClicked">{buttontxt}</button>
         </div> 
+      </div>
   </div>
-</div>
 </div>
 
 <style>
 .tiden {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .image_container2 {
   position: relative;
@@ -28,113 +28,94 @@ const { data } = Astro.props;
   border-radius: 10px;
   transition: all 0.6s ease-out;
 }
-
 .image_container2.startposition {
-    width: 360px;
-    height: 430px;
-      overflow: hidden;
-    /* transform: scale(1); */
+  width: 360px;
+  height: 430px;
+  overflow: hidden;
 }
-
 .image_container2.full {
   width: 88%;
   height: auto;
   overflow: visible;
 }
-
 .image_container2 img {
   display: block;
-  border-radius: 10px;
-    width: 100%; 
+  width: 100%; 
   height: 100%;
-    object-fit: cover;
+  border-radius: 10px;
+  object-fit: cover;
 }
-
-.overlay {
+.overlay, .standard {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+.overlay {
+  border-radius: 10px;
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0),
     rgba(0, 0, 0, 0.8)
   );
-  border-radius: 10px;
   z-index: 1;
-  pointer-events: none; /* Sikrer at overlayet ikke forstyrrer klik */
+  pointer-events: none; /* Sikrer at overlay ikke forstyrrer klik */
 }
-
 .standard {
-    position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  z-index: 2;
 }
-
 .standard h2, p {
-      position: absolute;
+  position: absolute;
   max-width: 65ch;
+   left: 20px;
 }
-
 .standard h2 {
-    font-size: 24px;
-    font-family: var(--h2-font);
-    bottom: 70px;
-  left: 20px;
-    text-transform: uppercase;
-    color: var(--yellow);
+  font-family: var(--h2-font);
+  font-size: var(--h2-sizeM);
+  bottom: 70px;
+  text-transform: uppercase;
+  color: var(--yellow);
 }
-
 .standard p {
-  font-size: 20px;
-  bottom: 38px;
-  left: 20px;
-    color: var(--beige);
+  font-family: var(--primary-font);
+  font-size: 1.3rem;
+  bottom: 30px;
+  color: var(--beige);
 }
-
 .button {
-position: absolute;
- border-radius: 10px;
- border: none;
-
-    width: 101%;
+  position: absolute;
+  width: 100%;
   height: 100%;
+  border-radius: 10px;
+  border: none;
   font-family: var(--h1-font);
-  font-size: 40px;
+  font-size: var(--h1-sizeM);
   letter-spacing: 2px;
-  background: var(--red);
+  background: var(--yellow600);
   -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
   mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
   -webkit-mask-size: 3000% 100%;
   mask-size: 3000% 100%;
-  color: var(--yellow600);
+  color: var(--beige);
   cursor: pointer;
   -webkit-animation: ani2 0.7s steps(29) forwards;
   animation: ani2 0.7s steps(29) forwards;
-
-    pointer-events: auto; 
-    /* masks and animation fra Copyright (c) 2024 by Yugam (https://codepen.io/pizza3/pen/qmerBv)*/
+  pointer-events: auto; 
+  /* masks and animation from: Copyright (c) 2024 by Yugam (https://codepen.io/pizza3/pen/qmerBv)*/
 }
-
 .button:hover {
-  background-color: var(--codGrey);
-  color: var(--yellow600);
+  background-color: var(--red);
+  color: var(--yellow);
  -webkit-animation: ani 0.7s steps(29) forwards;
   animation: ani 0.7s steps(29) forwards;
 }
-
 .button.active {
-   /* -webkit-mask: none;
-  mask: none;  */
   background-color: transparent;
   color: transparent;
 }
@@ -148,7 +129,6 @@ position: absolute;
     mask-position: 100% 0;
   }
 }
-
 @keyframes ani {
   from {
     -webkit-mask-position: 0 0;
@@ -159,7 +139,6 @@ position: absolute;
     mask-position: 100% 0;
   }
 }
-
 @-webkit-keyframes ani2 {
   from {
     -webkit-mask-position: 100% 0;
@@ -170,7 +149,6 @@ position: absolute;
     mask-position: 0 0;
   }
 }
-
 @keyframes ani2 {
   from {
     -webkit-mask-position: 100% 0;
@@ -180,56 +158,52 @@ position: absolute;
     -webkit-mask-position: 0 0;
     mask-position: 0 0;
   }
+  /* masks and animation from: Copyright (c) 2024 by Yugam (https://codepen.io/pizza3/pen/qmerBv)*/
 }
-   /* masks and animation fra Copyright (c) 2024 by Yugam (https://codepen.io/pizza3/pen/qmerBv)*/
-
-   @media (min-width: 800px) {
-.image_container2.startposition {
+/* Desktop styles */
+@media (min-width: 800px) {
+  .image_container2.startposition {
     width: 450px;
     height: 500px;
+  }
+  .image_container2.full {
+    width: 67%;
+  }
+  .standard h2 {
+    font-size: var(--h2-sizeD);
+  }
+  .standard p {
+  font-size: var(--p-sizeD);
+}.button {
+  font-size: var(--h1-sizeD);
+  }
 }
-
-.image_container2.full {
-  width: 65%;
-  height: auto;
-  padding: 0;
-}
-
-.standard p {
-  font-size: 24px;
-  bottom: 24px;
-}
-
-.button {
-  font-size: 52px;
-}
-   }
 </style>
 
 <script>
  document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".button");
     const productLists = document.querySelectorAll(".productlist");
-    const arrowDown = document.querySelector(".arrow")
+    const arrowDown = document.querySelector(".arrow");
+    const images = document.querySelectorAll(".image_container2");
 
-    // Function to deactivate all buttons and lists
     function deactivateAll() {
         buttons.forEach(btn => btn.classList.remove("active"));
         productLists.forEach(list => list.classList.remove("active"));
     }
 
-    // Add click event to each button
+    // Klikbegivenhed tilføjes til hver knap. Når en knap klikkes, udføres den angivne funktion. index variablen = knappens position i buttons css.
     buttons.forEach((button, index) => {
         button.addEventListener("click", (event) => {
-            event.stopPropagation(); // Prevent the click event from bubbling up to the document
+            event.stopPropagation(); // Det stopper med at udføre andre klikhændelser på højere elementer.
             
-            // If the button is already active, deactivate it and its corresponding list
+            // Aktiv knap = deaktivere knappen og listen.
             if (button.classList.contains("active")) {
                 button.classList.remove("active");
                 productLists[index].classList.remove("active");
                 arrowDown.classList.remove("active");
             } else {
-                // Otherwise, deactivate all and activate the clicked button and its corresponding list
+                // Ellers, deaktivere alt og tilføj click på knap og vise listen
                 deactivateAll();
                 button.classList.add("active");
                 productLists[index].classList.add("active");
@@ -238,29 +212,22 @@ position: absolute;
         });
     });
 
-    // Prevent list click from closing itself
+    // Dette forhindrer lister i at lukke selv.
     productLists.forEach((list) => {
         list.addEventListener("click", (event) => {
             event.stopPropagation();
         });
     });
 
-    // Hide arrowDown when scrolling to the bottom
+    // Fjerner arrowDown ved enden af skærmen (scrollY)
     window.addEventListener("scroll", () => {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
             arrowDown.classList.remove("active");
         }
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Hent alle knapper og billeder
-    const buttons = document.querySelectorAll('.button');
-    const images = document.querySelectorAll('.image_container2');
-
-    // Tilføj event listener til hver knap
     buttons.forEach((button, index) => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', () => {
             // Først, sæt alle billeder til "full"
             images.forEach((image, imgIndex) => {
                 if (imgIndex !== index) {
@@ -271,13 +238,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Skift tilstanden for det klikkede billede
             const image = images[index];
-            if (image.classList.contains('startposition')) {
-                image.classList.remove('startposition');
-                image.classList.add('full');
-            } else {
-                image.classList.remove('full');
-                image.classList.add('startposition');
-            }
+            image.classList.toggle('full');
+            image.classList.toggle('startposition');
         });
     });
 });
