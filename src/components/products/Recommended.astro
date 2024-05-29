@@ -16,7 +16,7 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
     .map((product, index) => (
       <article class="time">
         <a href={`/products/${product.slug}`}>
-          <div class="image_container">
+          <div class="image_container4">
           <img src={product.img} alt={product.beskrivelse} />
           </div>
           <h2>{product.product_name}</h2>
@@ -59,7 +59,7 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
   font-weight: normal;
 }
 
-.image_container {
+.image_container4 {
   width: auto; /* Set the desired width for the cropped area */
   height: 277px; /* Set the desired height for the cropped area */
   overflow: hidden; /* Hide any content outside the container */
