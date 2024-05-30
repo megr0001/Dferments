@@ -28,165 +28,143 @@ const { myData } = Astro.props;
 
 <!-- dot notation virkede ikke = {myData.artistname} i stedet løst med bracket notation -->
 <MainLayout title={myData['product_name']}>
-    <h1>{myData['product_name']}</h1>
-
-    <div class="main_container">
-      <div class="carousel_container">
-        <div class="carousel">
-            <div class="item active">
-                <img src={myData['img']} alt={myData['product_name']}>
-            </div>
-            <div class="item">
-                <img src={myData['img2']} alt={myData['product_name']}>
-            </div>
-            <div class="item">
-                <img src={myData['img3']} alt={myData['product_name']}>
-            </div>
+  <h1>{myData['product_name']}</h1>
+  <div class="main_container">
+    <div class="carousel_container">
+      <div class="carousel">
+        <div class="item active">
+          <img src={myData['img']} alt={myData['product_name']}>
         </div>
+        <div class="item">
+          <img src={myData['img2']} alt={myData['product_name']}>
+        </div>
+        <div class="item">
+          <img src={myData['img3']} alt={myData['product_name']}>
+        </div>
+      </div>
         <button class="btn prev"><img src="/img/products/arrowleft.svg" alt="left arrow svg"></button>
         <button class="btn next"><img src="/img/products/arrowright.svg" alt="right arrow svg"></button>
         <div class="dots"></div>
-     </div>
-
-     <div class="info">
-        <h3>DFerments</h3>
-        <h2>{myData['product_name']}</h2>
-        <p>{myData['price']}</p>
-          <div>
-            <div class="quantity-input">
-              <button class="quantity-input__modifier quantity-input__modifier--left"><img src="/img/products/minus.svg" alt="minus" loading="lazy"></button>
-              <input class="quantity-input__screen" type="text" value="6" readonly>
-              <button class="quantity-input__modifier quantity-input__modifier--right"><img src="/img/products/plus.svg" alt="plus" loading="lazy"></button>
-            </div>
-            <!--Copyright (c) 2024 by Mystro Ken (https://codepen.io/mystroken/pen/Moraab)-->
-          </div>
-          <button class="add_to_cart">ADD TO CART</button>
-          <p>{myData['beskrivelse']}</p>
-            <div class="labels">
-              <button class="ingredienser">NATURAL INGREDIENS</button>
-              <button class="farver">NO SYNTHETIC COLORING</button>
-      </div>
-      </div>
     </div>
-
-            <h2>Testimonials</h2>
- <div class="grid_test">
-   <div class="test_boks">
-      <div class="image_container3">
-      <img src="/img/products/thomas.webp" alt="Avatar">
+    <div class="info">
+      <h3>DFerments</h3>
+      <h2>{myData['product_name']}</h2>
+      <p>{myData['price']}</p>
+      <div>
+        <div class="quantity_input">
+          <button class="quantity_input_modifier modifier_left"><img src="/img/products/minus.svg" alt="minus" loading="eager"></button>
+          <input class="quantity_input_screen" type="text" value="6" readonly>
+          <button class="quantity_input_modifier modifier_right"><img src="/img/products/plus.svg" alt="plus" loading="eager"></button>
+        </div>
+          <!--Copyright (c) 2024 by Mystro Ken (https://codepen.io/mystroken/pen/Moraab)-->
       </div>
+        <button class="add_to_cart">ADD TO CART</button>
+        <p>{myData['beskrivelse']}</p>
+          <div class="labels">
+            <button class="ingredienser">NATURAL INGREDIENS</button>
+            <button class="farver">NO SYNTHETIC COLORING</button>
+          </div>
+    </div>
+  </div>
+  <div class="udsagn">
+    <h2>Testimonials</h2>
+    <div class="person">
+        <img src="/img/products/thomas.webp" alt="Avatar" loading="eager">
       <h3>Thomas</h3>
       <p>"Refreshing blend with a tangy kick, perfect for a dinner boost"</p>
-   </div>
-   <div class="test_boks">
-      <div class="image_container3">
-      <img src="/img/products/mark.webp" alt="Avatar">
-      </div>
+    </div>
+    <div class="person">
+        <img src="/img/products/mark.webp" alt="Avatar" loading="eager">
       <h3>Mark</h3>
       <p>"The kombucha is carefully crafted with a nuanced profile of fruity undertones"</p>
-   </div>
-   <div class="test_boks">
-      <div class="image_container3">
-      <img src="/img/products/isabella.webp" alt="Avatar">
-      </div>
+    </div>
+    <div class="person">
+        <img src="/img/products/isabella.webp" alt="Avatar" loading="eager">
       <h3>Isabella</h3>
       <p>"Delicate floral notes with a zestful finish, a true taste experience"</p>
-   </div>
-   <div class="test_boks">
-      <div class="image_container3">
-      <img src="/img/products/vira.webp" alt="Avatar">
-      </div>
+    </div>
+    <div class="person">
+        <img src="/img/products/vira.webp" alt="Avatar" loading="eager">
       <h3>Vira</h3>
       <p>"Refreshing kombucha with bubbles and a complex balance of tartness and sweetness"</p>
-   </div>
- </div>
-
-            <div class="recommend">
-                <h2>TASTE US TOO!</h2>
-                  <div class="fireitems">
-                  <Recommended/>
-                </div>
-            </div>
+    </div>
+  </div>
+  <div class="recommend">
+    <h2>TASTE US TOO!</h2>
+      <div class="fireitems">
+        <Recommended/>
+      </div>
+  </div>
 </MainLayout>
 
 <style>
-  h1 {
-        text-transform: uppercase;
-        color: var(--red);
-        font-family: var(--h1-font);
-        text-align: center;
-        margin: 48px 0 40px 0;
-        padding: 0 1rem;
-        font-size: var(--h1-sizeM)
-    }
+h1 {
+  margin: 2.5rem 1rem 3.5rem 1rem;
+  text-align: center;
+  font-family: var(--h1-font);
+  font-size: var(--h1-sizeM);
+  text-transform: uppercase;
+  color: var(--red);
+}
+/* slideshow styles */
 .carousel_container {
-  width: 90%;
-  margin: auto;
   position: relative;
+  margin: auto;
+  margin-bottom: 3.5rem;
   display: flex;
   flex-direction: column;
- align-items: center;
-    /* min-height: 100dvh; */
+  align-items: center;
+  width: 90%;
   .carousel {
     position: relative;
-    margin-bottom: 5rem;
     .item {
+      display: none;
       opacity: 0;
       width: 392px;
       height: 530px;
       overflow: hidden;
-      display: none;
       transition: opacity 0.5s ease-in-out;
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        object-position: center;
         border-radius: 10px;
-        margin-bottom: 58px;
+        object-fit: cover;
+        object-position: center; 
       }
-
       &.active {
-        opacity: 1;
         display: block;
+        opacity: 1;
       }
     }
   }
   .btn {
-    padding: 40px 0;
     position: absolute;
-    transform: translateY(-50%);
     top: 50%;
-    border: none;
-    cursor: pointer;
-    width: 12%;
+    width: 14%;
     height: auto;
+    transform: translateY(-50%);
+    border: none;
     background-color: transparent;
     transition: transform 0.2s ease-in-out;
-
-    &:active,
-    &:focus {
-      filter: drop-shadow(4px 15px rgba(0, 0, 0, 0.2));
+    cursor: pointer;
+    &:active, &:focus {
+      filter: drop-shadow(4px 15px rgba(242, 169, 34, 0.3));
     }
-
     &:hover {
-      filter: drop-shadow(0 0 0.75rem var(--red));
+      filter: drop-shadow(0 0 0.75rem rgba(242, 169, 34, 1));
     }
   }
-
   .prev {
     left: -6%;
   }
-
   .next {
     right: -6%;
   }
-
   .dots {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
     margin-top:31rem;
     gap: 16px;
 
@@ -197,156 +175,179 @@ const { myData } = Astro.props;
       border-radius: 10px;
       background-color:rgba(209, 104, 14, 0.3);
       transition: background-color 0.2s ease;
-
-      &.active,
-      &:hover {
+      &.active, &:hover {
         background-color: var(--codGrey);
       }
     }
   }
 }
-
+/* info sektion styles */
 .info {
   /* baggrunden */
   background-image: url(/img/products/flowerleft.svg);
   background-repeat: no-repeat;
-  background-position:center right;
-  background-size: 130%;
+  background-position: bottom center;
+  background-size: 80%;
 }
-
-/*  info styles h3, h2 & p */
-.info h3, h2, p {
-font-family: var(--h2-font);
-font-size: 1.5rem;
-color: var(--red);
-margin-bottom: 1.5rem;
-margin-left: 1rem;
+.info h2 {
+  margin: 0 1rem 1rem;
 }
-
-.info h2, p {
-margin-bottom: 1rem;
+.info h3 {
+  margin: 2.5rem 1rem;
 }
-
 .info p {
-color: var(--codGrey);
+  margin: 1rem 1rem 2rem;
+  font-family: var(--primary-font);
+  color: var(--codGrey);
+}
+.info h3, h2, p {
+font-size: var(--h2-sizeM);
+}
+.info h2, h3 {
+font-family: var(--h2-font);
+color: var(--red);
+}
+.info p, h2 {
+  text-transform: uppercase;
 }
 /* Quantity styles */
-.quantity-input {
+.quantity_input {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   border-radius: 10px;
   margin: 0 0 1rem 1rem;
 }
-
-.quantity-input:focus {
+.quantity_input:focus {
   background: var(--red);
 }
-
-.quantity-input__modifier,
-.quantity-input__screen {
+.quantity_input_modifier, .quantity_input_screen {
   user-select: none;
   outline: none;
 }
-
-.quantity-input__modifier {
+.quantity_input_modifier {
   padding: 1rem;
   width: 4rem;
-  font-size: 1.125rem;
-  font-family: var(--h2-font);
-  background: var(--white);
-  border-top: 1px solid var(--codGrey);
-  border-bottom: 1px solid var(--codGrey);
+  border-top: 2px solid var(--red950);
+  border-bottom: 2px solid var(--red950);
   border-inline: none;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  background: var(--white);
   cursor: pointer;
 }
-
-.quantity-input__modifier:hover {
-  background: var(--yellow600);
+.quantity_input_modifier:hover {
+  background: var(--yellow);
 }
-
-.quantity-input__modifier--left {
+.modifier_left {
   border-radius: 10px 0 0 10px;
-  border-left: 1px solid var(--codGrey);
+  border-left: 2px solid var(--red950);
 }
-
-.quantity-input__modifier--right {
+.modifier_right {
   border-radius: 0 10px 10px 0;
-  border-right: 1px solid var(--codGrey);
+  border-right: 2px solid var(--red950);
 }
-
-.quantity-input__modifier--left img, .quantity-input__modifier--right img {
+.modifier_left img, .modifier_right img {
+  display: block;
   width: 120%;
   height: auto
 }
-.quantity-input__screen {
+.quantity_input_screen {
   width: 4rem;
-  padding: 1.31rem 0;
-  font-size: 1.5rem;
-  border-top: 1px solid var(--codGrey);
-  border-bottom: 1px solid var(--codGrey);
-  border-inline: none;
   text-align: center;
+  font-family: var(--primary-font);
+  font-size: var(--h2-sizeM);
+  border-top: 2px solid var(--red950);
+  border-bottom: 2px solid var(--red950);
+  border-inline: none;
 }
-
 /* add_to_cart styles */
 .add_to_cart {
-  border-radius: 10px;
-  padding: 15px 20px;
-  margin-bottom: 2rem;
-  height: auto;
-  color: var(--beige);
-  font-size: var(--p-sizeD);
-  font-family: var(--primary-font);
-  background-color: var(--yellow600);
-  border:none;
-  margin: 0 1rem;
   width: 93%;
+  height: auto;
+  margin: 1rem 1rem 1.5rem;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: var(--h2-sizeM);
+  font-family: var(--primary-font);
+  color: var(--beige);
+  background-color: var(--yellow600);
 }
-
-/* testimniols */
-.grid_test {
-  display: flex;
-  flex-direction:column;
+p {
+  margin: 2.5rem 1rem 3.5rem;
+  font-family: var(--primary-font);
+  font-size: var(--h2-sizeM);
 }
-.grid_test img {
-  border-radius: 100%;
-  height: 25%;
-  width: 25%;
-  margin: 0 38.5%;
-}
-
-.test_boks p {
-  margin: 0 15%;
-  font-size: var(--p-sizeM);
-}
-
-.test_boks {
-  margin-bottom: 50px;
-}
-
 /* labels styles */
 .labels {
   display: flex;
-  gap: 11px;
+  gap: 1.5rem;
   margin-inline: 1rem;
-
+  margin-bottom: 3.5rem;
+  text-align: center;
 }
 .ingredienser, .farver {
-  border-radius: 10px;
-  padding: 10px 20px;
+  display: block;
   width: 100%;
   height: auto;
-  margin: 0 auto 2rem auto;
-  display: block;
-  color: var(--beige);
-  font-size: 16px;
-  font-family: var(--h2-font);
-  background-color: var(--red);
+  margin: 1rem auto 3.5rem auto;
+  padding: 15px 20px;
+  border-radius: 10px;
   border:none;
+  font-family: var(--primary-font);
+  font-size: var(--p-sizeM);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--beige);
+  background-color: var(--red);
 }
-/***** MEDIA QUERIES FOR DESKTOP *****/
+/* testimonials */
+.udsagn {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--beigeD);
+}
+.udsagn h2 {
+  margin: 2.5rem 1rem 3.5rem 1rem;
+  text-align: center;
+  font-family: var(--h2-font);
+  font-size: var(--h1-sizeM);
+  text-transform: uppercase;
+}
+.person {
+  margin-bottom: 1rem;
+}
+.person img {
+  margin: 0 auto;
+  width: 30%;
+  height: 30%;
+  border-radius: 100%;
+}
+.person p {
+  margin: 0 1rem 2rem;
+  text-align: center;
+  font-family: var(--primary-font);
+  font-size: 20px;
+}
+.person h3 {
+  margin: 1rem auto 0.5rem;
+  text-align: center;
+  font-family: var(--h2-font);
+  font-size: var(--h2-sizeM);
+  color: var(--codGrey);
+}
+.recommend {
+  margin: 2.5rem 1rem 2.5rem;
+}
+.recommend h2 {
+  margin: 1rem 0 2rem;
+  text-align: center;
+  font-family: var(--h2-font);
+  font-size: var(--h1-sizeM);
+  text-transform: uppercase;
+  color: var(--red);
+}
+/* MEDIA QUERIES FOR DESKTOP */
 @media (min-width: 800px) {
   h1 {
         margin: 6rem 0 2.5rem 0;
@@ -437,24 +438,24 @@ margin-bottom: 1rem;
 color: var(--codGrey);
 }
 /* Quantity styles */
-.quantity-input {
+.quantity_input {
   display: flex;
   align-items: center;
   border-radius: 10px;
   margin: 0 0 1rem 1rem;
 }
 
-.quantity-input:focus {
+.quantity_input:focus {
   background: var(--red);
 }
 
-.quantity-input__modifier,
-.quantity-input__screen {
+.quantity_input__modifier,
+.quantity_input__screen {
   user-select: none;
   outline: none;
 }
 
-.quantity-input__modifier {
+.quantity_input__modifier {
   padding: 1rem;
   width: 4rem;
   font-size: 1.125rem;
@@ -468,25 +469,25 @@ color: var(--codGrey);
   cursor: pointer;
 }
 
-.quantity-input__modifier:hover {
+.quantity_input__modifier:hover {
   background: var(--yellow600);
 }
 
-.quantity-input__modifier--left {
+.quantity_input__modifier--left {
   border-radius: 10px 0 0 10px;
   border-left: 1px solid var(--codGrey);
 }
 
-.quantity-input__modifier--right {
+.quantity_input__modifier--right {
   border-radius: 0 10px 10px 0;
   border-right: 1px solid var(--codGrey);
 }
 
-.quantity-input__modifier--left img, .quantity-input__modifier--right img {
+.quantity_input__modifier--left img, .quantity_input__modifier--right img {
   width: 120%;
   height: auto
 }
-.quantity-input__screen {
+.quantity_input__screen {
   width: 4rem;
   padding: 1.31rem 0;
   font-size: 1.5rem;
@@ -628,9 +629,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // Quantity js
 document.addEventListener('DOMContentLoaded', () => {
-      const decrementButton = document.querySelector('.quantity-input__modifier--left');
-      const incrementButton = document.querySelector('.quantity-input__modifier--right');
-      const quantityInput = document.querySelector('.quantity-input__screen') as HTMLInputElement;
+      const decrementButton = document.querySelector('.modifier_left');
+      const incrementButton = document.querySelector('.modifier_right');
+      const quantityInput = document.querySelector('.quantity_input_screen') as HTMLInputElement;
 
       let value = 6;
 
