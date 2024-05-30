@@ -8,6 +8,7 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
 }
 ).then((res) => res.json());
 ---
+
 <ul class="productlist">
   {data
     .filter(product => product.category === 'present')
@@ -26,7 +27,6 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
   }
 </ul>
 
-
 <style>
   .productlist {
   display: flex;
@@ -36,8 +36,8 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
 
 .time {
   flex-basis: calc(50% - 2rem); /* Beregn bredden på hver time */
-  margin: 0 16px 32px 16px;
-    border-bottom: 1px solid var(--red950);
+  margin: 0 1rem 3rem;
+  border-bottom: 2px solid var(--red950);
 }
 
 .time a {
@@ -54,21 +54,34 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
 }
 
 .time h2 {
-  margin: 16px 0 16px 0;
+  margin: 1rem 0;
   text-transform: uppercase;
   font-weight: normal;
 }
 
 .image_container4 {
-  width: auto; /* Set the desired width for the cropped area */
-  height: 277px; /* Set the desired height for the cropped area */
-  overflow: hidden; /* Hide any content outside the container */
+  width: auto;
+  height: 280px;
+  overflow: hidden; 
 }
-
 .time img {
-    object-fit: cover; /* Ensure the image covers the container */
-    width: 100%; /* Make sure the image takes up 100% of the container */
-    height: 100%; /* Make sure the image takes up 100% of the container */
+    object-fit: cover; 
+    width: 100%;
+    height: 100%; 
     border-radius: 10px;
+}
+@media (min-width: 800px) {
+  .productlist {
+    margin: 0 0 6rem;
+  }
+  .time {
+    margin: 0 1rem 3.5rem;
+  }
+  .time a {
+    font-size: var(--p-sizeD);
+  }
+  .image_container4 {
+    height: 520px;
+  }
 }
 </style>

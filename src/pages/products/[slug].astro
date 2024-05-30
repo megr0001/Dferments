@@ -66,8 +66,9 @@ const { myData } = Astro.props;
           </div>
     </div>
   </div>
+  <div class="background_wrap">
+  <h2>Testimonials</h2>
   <div class="udsagn">
-    <h2>Testimonials</h2>
     <div class="person">
         <img src="/img/products/thomas.webp" alt="Avatar" loading="eager">
       <h3>Thomas</h3>
@@ -88,6 +89,7 @@ const { myData } = Astro.props;
       <h3>Vira</h3>
       <p>"Refreshing kombucha with bubbles and a complex balance of tartness and sweetness"</p>
     </div>
+  </div>
   </div>
   <div class="recommend">
     <h2>TASTE US TOO!</h2>
@@ -227,8 +229,7 @@ color: var(--red);
 .quantity_input_modifier {
   padding: 1rem;
   width: 4rem;
-  border-top: 2px solid var(--red950);
-  border-bottom: 2px solid var(--red950);
+  border: 2px solid var(--red950);
   border-inline: none;
   background: var(--white);
   cursor: pointer;
@@ -254,8 +255,7 @@ color: var(--red);
   text-align: center;
   font-family: var(--primary-font);
   font-size: var(--h2-sizeM);
-  border-top: 2px solid var(--red950);
-  border-bottom: 2px solid var(--red950);
+  border: 2px solid var(--red950);
   border-inline: none;
 }
 /* add_to_cart styles */
@@ -307,7 +307,11 @@ p {
   justify-content: center;
   background-color: var(--beigeD);
 }
-.udsagn h2 {
+.background_wrap {
+  background-color: var(--beigeD);
+  padding: 1rem;
+}
+.background_wrap h2, .recommend h2 {
   margin: 2.5rem 1rem 3.5rem 1rem;
   text-align: center;
   font-family: var(--h2-font);
@@ -337,297 +341,159 @@ p {
   color: var(--codGrey);
 }
 .recommend {
-  margin: 2.5rem 1rem 2.5rem;
+  margin: 2.5rem 1rem;
 }
 .recommend h2 {
   margin: 1rem 0 2rem;
-  text-align: center;
-  font-family: var(--h2-font);
-  font-size: var(--h1-sizeM);
-  text-transform: uppercase;
   color: var(--red);
 }
-/* MEDIA QUERIES FOR DESKTOP */
+/* Desktop Style */
 @media (min-width: 800px) {
   h1 {
-        margin: 6rem 0 2.5rem 0;
-        font-size: var(--h1-sizeD)
-    }
-
-    .main_container {
-      display: flex;
-    }
-.carousel_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 2rem;
-  gap: 2rem;
-  width: 50%;
-  .carousel {
-     position: relative;
+    margin: 6rem 0 4rem;
+    font-size: var(--h1-sizeD)
+  }
+  .main_container {
     display: flex;
-    flex-direction: column;
-    height: 530px; /* Set height to contain the images */
-    overflow: hidden;
-    margin-bottom: 5rem;
-    .item {
-      opacity: 0;
-      width: 392px;
+    align-items: center
+  }
+  .carousel_container {
+    display: flex;
+    margin: 0 2rem;
+    width: 50%;
+    .carousel {
       height: 530px;
       overflow: hidden;
-      display: none;
-      transition: opacity 0.5s ease-in-out;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 10px;
-        margin-bottom: 58px;
-      }
-
-      &.active {
-        opacity: 1;
-        display: flex;
-        transform: translateY(0); /* Ensure it is in view */
-      }
-    }
+      margin-bottom: 4rem;
+      .item {
+        width: 400px;
+        &.active {
+          display: flex;
+          transform: translateY(0);
+        }
+     }
+   }
   }
-}
-  .btn {
-    display: none;
+  .carousel_container .btn {
+    width: 7%;
   }
-  .dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    margin-top:31rem;
-    gap: 16px;
-
+  .carousel_container .prev {
+    left: 10%;
+  }
+  .carousel_container .next {
+    right: 10%;
+  }
+  .carousel_container .dots {
+    gap: 20px;
     .dot {
-      cursor: pointer;
-      height: 14px;
-      width: 14px;
-      border-radius: 10px;
-      background-color:rgba(209, 104, 14, 0.3);
-      transition: background-color 0.2s ease;
-
-      &.active,
-      &:hover {
-        background-color: var(--codGrey);
-      }
+      height: 17px;
+      width: 17px;
     }
   }
-/*  info styles h3, h2 & p */
-.info h3, h2, p {
-font-family: var(--h2-font);
-font-size: 1.5rem;
-color: var(--red);
-margin-bottom: 1.5rem;
-margin-left: 1rem;
-}
-
-.info h2, p {
-margin-bottom: 1rem;
-}
-
-.info p {
-color: var(--codGrey);
-}
-/* Quantity styles */
-.quantity_input {
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  margin: 0 0 1rem 1rem;
-}
-
-.quantity_input:focus {
-  background: var(--red);
-}
-
-.quantity_input__modifier,
-.quantity_input__screen {
-  user-select: none;
-  outline: none;
-}
-
-.quantity_input__modifier {
-  padding: 1rem;
-  width: 4rem;
-  font-size: 1.125rem;
-  font-family: var(--h2-font);
-  background: var(--white);
-  border-top: 1px solid var(--codGrey);
-  border-bottom: 1px solid var(--codGrey);
-  border-inline: none;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-}
-
-.quantity_input__modifier:hover {
-  background: var(--yellow600);
-}
-
-.quantity_input__modifier--left {
-  border-radius: 10px 0 0 10px;
-  border-left: 1px solid var(--codGrey);
-}
-
-.quantity_input__modifier--right {
-  border-radius: 0 10px 10px 0;
-  border-right: 1px solid var(--codGrey);
-}
-
-.quantity_input__modifier--left img, .quantity_input__modifier--right img {
-  width: 120%;
-  height: auto
-}
-.quantity_input__screen {
-  width: 4rem;
-  padding: 1.31rem 0;
-  font-size: 1.5rem;
-  border-top: 1px solid var(--codGrey);
-  border-bottom: 1px solid var(--codGrey);
-  border-inline: none;
-  text-align: center;
-}
-
-/* add_to_cart styles */
-.add_to_cart {
-  border-radius: 10px;
-  padding: 15px 20px;
-  margin-bottom: 2rem;
-  height: auto;
-  color: var(--beige);
-  font-size: var(--p-sizeD);
-  font-family: var(--primary-font);
-  background-color: var(--yellow600);
-  border:none;
-  margin: 0 1rem;
-  width: 93%;
-}
-
-/* testimonials */
-.grid_test {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 0 15%;
-    gap: 100px;
+  /* info sektion styles */
+  .info {
+    margin: 0 1rem;
+    background-position: bottom right;
+    background-size: 60%;
   }
+  .info h3, h2, p {
+    font-size: var(--h2-sizeD);
 
-  .grid_test img {
-    border-radius: 50%;
-    height: 25%;
-    width: 30%;
-    margin: 0 35%;
   }
-
-.test_boks p {
-    margin: 0 0;
+  /* Quantity styles */
+  .quantity_input_modifier {
+    width: 4rem;
+  }
+  .modifier_left img, .modifier_right img {
+    width: 100%;
+  }
+  .quantity_input_screen {
+    width: 4rem;
+    font-size: var(--h2-sizeM);
+  }
+  /* add_to_cart styles */
+  .add_to_cart {
+    width: 95%;
+  }
+  /* labels styles */
+  .labels {
+    gap: 48px;
+  }
+  .ingredienser, .farver {
+    margin: 1rem auto 0 auto;
+    padding: 20px;
     font-size: var(--p-sizeD);
   }
-
-  .test_boks {
-    margin-bottom: 50px;
+  /* testimonials */
+  .udsagn {
+    display: flex;
+    flex-direction:row;
   }
-
- .image-container {
-    width: 200px; /* Set the desired width for the cropped area */
-    height: 200px; /* Set the desired height for the cropped area */
-    overflow: hidden; /* Hide any content outside the container */
-    border-radius: 100%;
+  .background_wrap h2, .recommend h2 {
+    font-size: var(--h1-sizeD);
   }
-
-  .image-container img {
-    object-fit: cover; /* Ensure the image covers the container */
-    width: 100%; /* Make sure the image takes up 100% of the container */
-    height: 100%; /* Make sure the image takes up 100% of the container */
+  .person h3 {
+    font-size: var(--h2-sizeD);
   }
-
-
-/* labels styles */
-.labels {
-  display: flex;
-  gap: 11px;
-  margin-inline: 1rem;
-
-}
-.ingredienser, .farver {
-  border-radius: 10px;
-  padding: 10px 20px;
-  width: 100%;
-  height: auto;
-  margin: 0 auto 2rem auto;
-  display: block;
-  color: var(--beige);
-  font-size: 16px;
-  font-family: var(--h2-font);
-  background-color: var(--red);
-  border:none;
-}
+  .recommend {
+    margin: 6rem 10rem;
+  }
 }
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+   // Carousel setup
   let carousel = document.querySelector(".carousel");
   let items = carousel.querySelectorAll(".item");
   let dotsContainer = document.querySelector(".dots");
 
   // Insert dots into the DOM
   items.forEach((_, index) => {
-    let dot = document.createElement("span");
+    const dot = document.createElement("span");
     dot.classList.add("dot");
     if (index === 0) dot.classList.add("active");
     dot.dataset.index = index.toString();
     dotsContainer.appendChild(dot);
   });
 
-  let dots = document.querySelectorAll(".dot");
+  const dots = document.querySelectorAll(".dot");
 
   // Function to show a specific item
   function showItem(index) {
     items.forEach((item, idx) => {
-      item.classList.remove("active");
-      dots[idx].classList.remove("active");
-      if (idx === index) {
-        item.classList.add("active");
-        dots[idx].classList.add("active");
-      }
+       const isActive = idx === index;
+      item.classList.toggle("active", isActive);
+      dots[idx].classList.toggle("active", isActive);
     });
+  }
+
+  // Helper function to get the current active index
+  function getActiveIndex() {
+    return [...items].findIndex((item) => item.classList.contains("active"));
   }
 
   // Event listeners for buttons
   document.querySelector(".prev").addEventListener("click", () => {
-    let index = [...items].findIndex((item) =>
-      item.classList.contains("active")
-    );
+    const index = getActiveIndex();
     showItem((index - 1 + items.length) % items.length);
   });
 
   document.querySelector(".next").addEventListener("click", () => {
-    let index = [...items].findIndex((item) =>
-      item.classList.contains("active")
-    );
+      const index = getActiveIndex();
     showItem((index + 1) % items.length);
   });
 
   // Event listeners for dots
   dots.forEach((dot) => {
     dot.addEventListener("click", () => {
-      let index = parseInt((dot as HTMLSpanElement).dataset.index!);
+      const index = parseInt((dot as HTMLSpanElement).dataset.index!);
       showItem(index);
     });
   });
 });
-// Quantity js
+
+// Quantity adjustment setup
 document.addEventListener('DOMContentLoaded', () => {
       const decrementButton = document.querySelector('.modifier_left');
       const incrementButton = document.querySelector('.modifier_right');
@@ -639,12 +505,12 @@ document.addEventListener('DOMContentLoaded', () => {
         quantityInput.value = value.toString(); // Convert value to string
       }
 
-      decrementButton.addEventListener('click', () => {
+      decrementButton.addEventListener("click", () => {
         value = Math.max(0, value - 6);
         updateQuantity();
       });
 
-      incrementButton.addEventListener('click', () => {
+      incrementButton.addEventListener("click", () => {
         value += 6;
         updateQuantity();
       });
