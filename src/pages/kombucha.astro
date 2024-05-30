@@ -34,10 +34,10 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
               // Kontrollerer om produktets kategori er past. Kun produkter med denne kategori vil blive vist.
               return (
                 <article class="time">
-                  <a href={`/products/${product.slug}`}>
+                  {/* <a href={`/products/${product.slug}`}>  */}
                     {/* Opretter et link (<a>-tag) til produktets detaljerede side. href-attributten dynamisk genereres ved hjælp af produktets slug.*/}
                     <h2>{product.product_name}</h2>
-                  </a>
+                  {/* </a> */}
                   <p>{product.beskrivelse}</p>
                 </article>
               );
@@ -92,9 +92,9 @@ const data = await fetch("https://jzfjblexhwoijgbgmixy.supabase.co/rest/v1/dferm
             if (product.category === 'future') {
               return (
                 <article class="time">
-                  <a href={`/products/${product.slug}`}>
+                  {/* <a href={`/products/${product.slug}`}> */}
                   <h2>{product.product_name}</h2>
-                  </a>
+                  {/* </a> */}
                   <p>{product.beskrivelse}</p>
                 </article>
               );
